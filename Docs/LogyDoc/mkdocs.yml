@@ -1,0 +1,9 @@
+site_name: LogyDoc
+theme:
+  name: 'material'
+
+nav:
+  - Accueil: index.md
+  - Documentation : documentation.md
+
+use_directory_urls : false
