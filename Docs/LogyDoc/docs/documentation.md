@@ -85,3 +85,17 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |L’utilisateur clique sur l’un des projets qu’il a crée|L’application ouvre le journal de bord|
+|L'utilisateur clique sur le bouton ajouter une activités|L'application ouvre un formulaire d'ajout d'activités|
+|L'utilisateur remplit que le champ title| L'application lui demande de remplire les autres champs nécessaires|
+|L'utilisateur remplit tout les champs nécessaires| L'application ajoute l'activité est redirige vers la page du journal de bord|
+
+###### Option
+
+|**Action**|**Résultat attendu**|
+|----------|--------------------|
+|L'utilisateur appuie sur les boutons options| L'application affiche les options du projet|
+|L'utilisateur edite le champ nom du projet|L'application active le bouton enregistrer|
+|L'utilisateur appuie sur le bouton enregistrer| L'application va mettre à jour les données|
+|L'utilisateur edit les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|
+|L'utilisateur définit des horaires de travail |L'application active le bouton enregistrer|
+|L'utilisateur appuie sur enregistrer| L'application mets à jour la base de données|
