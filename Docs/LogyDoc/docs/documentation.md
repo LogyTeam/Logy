@@ -85,21 +85,11 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |L’utilisateur clique sur l’un des projets qu’il a crée|L’application ouvre le journal de bord|
-<<<<<<< HEAD
-
-##### Analyse Concurrentielle
-
-|**Nom**|**Avantages**|**Désaventages**|
-|-------|-------------|----------------|
-|Excel|Tableur dans lequel on peut facilement rentrer toute sorte de données et qui permet de faire un journal de bord avec| Pas fait pour ça à la base et il est payant|
-|Zoho Project| Gestionnaire de projet Web gratuit, Super design, Facile d'utlisation et pleins de fonctionnalité différentes | Application Web -> Connexion obligatoire, pages un peu trop remplies, quelques bugs de responsivité|
-|||||
-=======
-|L'utilisateur clique sur le bouton ajouter une activités|L'application ouvre un formulaire d'ajout d'activités|
-|L'utilisateur remplit que le champ title| L'application lui demande de remplire les autres champs nécessaires|
+|L'utilisateur clique sur le bouton ajouter une activité|L'application ouvre un formulaire d'ajout d'activités|
+|L'utilisateur remplit que le champ title| L'application lui demande de remplir les autres champs nécessaires|
 |L'utilisateur remplit tout les champs nécessaires| L'application ajoute l'activité est redirige vers la page du journal de bord|
 
-###### Option
+###### Options
 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
@@ -109,4 +99,21 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |L'utilisateur edit les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|
 |L'utilisateur définit des horaires de travail |L'application active le bouton enregistrer|
 |L'utilisateur appuie sur enregistrer| L'application mets à jour la base de données|
->>>>>>> 65372a03536d9c7a6165efc05b309b581252cf7c
+
+
+##### Analyse Concurrentielle
+###### Avantages et désaventages
+|**Nom**|**Avantages**|**Désaventages**|
+|-------|-------------|----------------|
+|Excel|Tableur dans lequel on peut facilement rentrer toute sorte de données et qui permet de faire un journal de bord avec| Pas fait pour ça à la base et il est payant|
+|Zoho Project| Gestionnaire de projet Web gratuit, Super design, Facile d'utlisation et pleins de fonctionnalité différentes | Application Web -> Connexion obligatoire, pages un peu trop remplies, quelques bugs de responsivité|
+|Wrike|Application mobile,responsive,pleins de fonctionnalités, Les projets peuvent etre privé ou partagé et c'est bien différencié|Beaucoup d'options, On se perd un peu|
+
+###### Exemple Graphique
+
+* Excel
+![Zoho](./images/Concurentielle/Excel.png)
+* Zoho Project
+![Zoho](./images/Concurentielle/Zoho_project.png)
+* Wrike
+![Wrike](./images/Concurentielle/Wrike.png)
