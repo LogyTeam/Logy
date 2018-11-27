@@ -16,8 +16,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Activity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Day.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Logbook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Schedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logbook\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Database\" />
   </ItemGroup>
 </Project>
