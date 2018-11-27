@@ -37,7 +37,7 @@ L'application doit être :
 L’organisation du projet sera principalement basée sur une méthode agile à l’aide de l’outil intégré de Github.
 
 ## Analyse
-### Caillier des charges
+### Cahier des charges
 #### MCD
 ![mcd](./images/MCD.png)
 #### Wireframe
@@ -85,3 +85,11 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |L’utilisateur clique sur l’un des projets qu’il a crée|L’application ouvre le journal de bord|
+
+##### Analyse Concurrentielle
+
+|**Nom**|**Avantages**|**Désaventages**|
+|-------|-------------|----------------|
+|Excel|Tableur dans lequel on peut facilement rentrer toute sorte de données et qui permet de faire un journal de bord avec| Pas fait pour ça à la base et il est payant|
+|Zoho Project| Gestionnaire de projet Web gratuit, Super design, Facile d'utlisation et pleins de fonctionnalité différentes | Application Web -> Connexion obligatoire, pages un peu trop remplies, quelques bugs de responsivité|
+|||||
