@@ -32,6 +32,45 @@ namespace Logy.Logbook
         {
             this.description = description;
         }
+        public void SetStartHour(DateTime hour)
+        {
+
+        }
+
+        public void SetEndHour(DateTime hour)
+        {
+
+        }
+
+        public void SetLocation(string location)
+        {
+            
+        }
+
+        public string GetTitle()
+        {
+            return this.title;
+        }
+
+        public string GetDescription()
+        {
+            return this.description;
+        }
+        public DateTime GetStartHour()
+        {
+            return this.startHour;
+        }
+
+        public DateTime GetEndHour()
+        {
+            return this.endHour;
+        }
+
+        public string GetLocation()
+        {
+            return this.location;
+        }
+
 
     }
 }

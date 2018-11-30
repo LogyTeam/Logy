@@ -48,7 +48,8 @@ namespace Logy.Logbook
 
         public void ChangePassword(string password)
         {
-            
+            //TODO : Implémentation du change password avec BDD
+
         }
 
     }

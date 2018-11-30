@@ -17,7 +17,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Activity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Logbook\Day.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Logbook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Schedule.cs" />
