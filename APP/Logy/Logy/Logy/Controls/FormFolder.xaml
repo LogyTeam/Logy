@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Logy.Controls.FormFolder">
+    <Grid x:Name="Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        <Image x:Name="imgFolder" Source="Assets/Images/Folder.png" HeightRequest="128" HorizontalOptions="Center" />
+        <Label x:Name="lblFolderName" Text="Folder" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" />
+    </Grid>
+</ContentPage>
