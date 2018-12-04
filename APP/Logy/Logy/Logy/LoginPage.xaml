@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Logy"
+             x:Class="Logy.LoginPage" BackgroundColor="#666666">
+
+    <StackLayout Padding="20,20,20,20" VerticalOptions="Center" >
+        <Label TextColor="White" FontSize="60" Text="Logy" HorizontalTextAlignment="Center"></Label>
+            <StackLayout Padding="30,30,30,30" BackgroundColor="#00aff7" >
+                <Label Text="Email :" />
+                <Entry Placeholder="Par exemple : Philibert" x:Name="txtEmail" />
+                <Label Text="Mot de passe :" />
+            <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwd"/>
+                <Button Text="Connexion" x:Name="btnConnection"></Button>
+            </StackLayout>
+        <Label Text="Pas encore inscrit ? Inscrit toi maintenant !" x:Name="lblInscription"></Label>
+    </StackLayout>
+
+</ContentPage>

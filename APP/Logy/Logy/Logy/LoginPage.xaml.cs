@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace Logy
 {
-    public partial class MainPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public MainPage()
+        public LoginPage()
         {
             InitializeComponent();
         }
