@@ -44,7 +44,10 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 ![account_logon](./images/wireframes/account_logon.png)
 ![account_inscription](./images/wireframes/account_inscription.png)
 
-#### Cas d'utilisation et scénarios
+#### Cas d'utilisation
+![usecases](./images/UseCase.png)
+
+#### Scénarios
 
 ##### Visieur :
 
