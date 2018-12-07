@@ -16,10 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormFolder.xaml.cs">
-      <DependentUpon>FormFolder.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Activity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Day.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logbook\Logbook.cs" />
@@ -33,13 +29,16 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)OptionPage.xaml.cs">
+      <DependentUpon>OptionPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Assets\Images\" />
     <Folder Include="$(MSBuildThisFileDirectory)Database\" />
   </ItemGroup>
   <ItemGroup>
@@ -49,17 +48,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Controls\FormFolder.xaml">
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Folder.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Logo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\Folder.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)OptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
