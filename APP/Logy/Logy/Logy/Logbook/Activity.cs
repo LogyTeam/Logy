@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Logy.Logbook
 {
-    class Activity
+    public class Activity
     {
         private string title;
         private string description;

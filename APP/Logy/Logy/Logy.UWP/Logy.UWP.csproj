@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{7F06D634-17C5-4FB5-A5C7-C9EAF9941B63}</ProjectGuid>
+    <ProjectGuid>{5BFF36F4-FE6E-4A2C-8810-6267932E453B}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Logy.UWP</RootNamespace>
@@ -143,10 +143,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5"/>
   </ItemGroup>
-  <Import Project="..\Logy\Logy.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Logy\Logy.csproj">
+      <Project>{076D2CBF-76A2-4DE0-92BD-8445AE48014E}</Project>
+      <Name>Logy</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

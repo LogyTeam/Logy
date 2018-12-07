@@ -7,7 +7,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Schedule that contains the schedule of the user 
     /// </summary>
-    class Schedule
+    public class Schedule
     {
 
 

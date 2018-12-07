@@ -4,7 +4,7 @@
 
 ### 1. Matériel hardware
 
-Ce projet est réalisé sur diverses machines; Les PC du CPNV ainsi que nos ordinateurs personnels.
+Ce projet est réalisé sur diverses machines : les PC du CPNV ainsi que nos ordinateurs personnels.
 
 ##### Spécifications
 
@@ -24,9 +24,11 @@ Pour la réalisation de cet application nous utilisons les outils/logiciels et l
 * Visio 2016 - Pour les différents diagrammes
 * MkDocs - Outils pour générer une documention HTML à partir de markdown
 * MySQL - Base de donnée utilisée
+* MySQL Workbench - Création de MLD et exportation en script SQL
 
-###### Librairies
+###### Librairies/Framework
 * Xamarin - Permet la réalisation d'applications mobiles
+* SQLite
 
 ### 3. Base de données
 MCD et MLD de la base de données.
@@ -37,6 +39,6 @@ MCD et MLD de la base de données.
 
 ![MLD](./images/MLD.png)
 
-### 4. Digramme UML de classes
+### 4. Diagramme UML de classes
 Le diagramme UML de l'application, représentant toutes ses classes et leurs relations.
 ![Diagramme de classes](./images/UML.jpg)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Logy.Logbook
 {
-    class Project
+    public class Project
     {
         private string name;
         private DateTime startDate;
@@ -13,8 +13,6 @@ namespace Logy.Logbook
         private User User;
         private Logbook logbook;
         List<Schedule> schedules;
-
-
 
         public Project(string name, DateTime startDate,User user)
         {
