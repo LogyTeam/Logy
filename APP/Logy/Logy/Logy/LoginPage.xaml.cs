@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logy.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,17 @@ namespace Logy
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        public void btnConnection_clicked(object sender, EventArgs e)
+        {
+            DatabaseManager.Connect();
+            List<Dictionary<string, string>> users = DatabaseManager.Select("SELECT * FROM user;");
+
+            foreach (Dictionary<string, string> user in users)
+            {
+                this.lblInscription.Text = user["username"];
+            }
         }
     }
 }

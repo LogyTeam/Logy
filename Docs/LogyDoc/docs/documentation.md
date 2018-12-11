@@ -12,7 +12,7 @@ Chef de projet :
 |---|------|-----|
 |Ithurbide|Julien|Julien.Ithurbide@cpnv.ch|
 
-Dévloppeur :
+Développeurs :
 
 |Nom|Prénom|Email|
 |---|------|-----|
@@ -46,7 +46,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 
 #### Scénarios
 
-##### Visieur :
+##### Visiteur :
 
 |**Action**|**Résultat attendu**|
 |------|----------------|
