@@ -15,7 +15,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Logbook that contains user's logbook information
     /// </summary>
-    class Logbook
+    public class Logbook
     {
         #region variables
         private string userName; //Contains the logbook's username

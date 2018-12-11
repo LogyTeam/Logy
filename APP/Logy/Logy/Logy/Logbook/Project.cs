@@ -13,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Project that contains project informations
     /// </summary>
-     class Project
+    public class Project
     {
         #region variables
         private string name;

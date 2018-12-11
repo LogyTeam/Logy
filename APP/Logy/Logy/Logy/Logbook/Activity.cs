@@ -13,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Activity that contains activity's informations
     /// </summary>
-    class Activity
+    public class Activity
     {
         #region variables
         private string title;       //Title of the activity

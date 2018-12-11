@@ -13,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Schedule that contains the schedule of the user 
     /// </summary>
-    class Schedule
+    public class Schedule
     {
         #region Variables
         public DayOfWeek Day; //Day Of the week

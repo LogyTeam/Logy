@@ -13,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class User that contains user informations
     /// </summary>
-     class User
+     public class User
     {
         #region Variables
         private string username; //Username of the user
