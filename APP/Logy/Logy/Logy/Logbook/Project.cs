@@ -16,13 +16,13 @@ namespace Logy.Logbook
     public class Project
     {
         #region variables
-        private string name;
-        private DateTime startDate;
-        private DateTime endDate;
-        private string nomMembre;
-        private User User;
-        private Logbook logbook;
-        private List<Schedule> schedules;
+        public string Name { get; private set;}
+        public DateTime StartDate { get; private set; }
+        public DateTime EndDate { get; private set; }
+        public string NomMembre { get; private set; }
+        public User User { get; private set; }
+        public Logbook Logbook { get; private set; }
+        public List<Schedule> Schedules { get; private set; }
         #endregion
 
         #region Constructor 
@@ -34,9 +34,11 @@ namespace Logy.Logbook
         /// <param name="user"></param>
         public Project(string name, DateTime startDate,User user)
         {
-            this.name = name;
-            this.startDate = startDate;
+            this.Name = name;
+            this.StartDate = startDate;
             this.User = user;
+            this.Schedules = new List<Schedule>();
+            CreateLogbook();
         }
         #endregion
 
@@ -48,65 +50,16 @@ namespace Logy.Logbook
         /// </summary>
         public void CreateLogbook()
         {
-            this.logbook = new Logbook();
+            this.Logbook = new Logbook();
         }
 
-        /// <summary>
-        /// Set or change the end date
-        /// </summary>
-        /// <param name="date"></param>
-        public void SetEndDate(DateTime date)
+        public void AddSchedule(Schedule schedule)
         {
-
-            this.endDate = date;
-        }
-
-        /// <summary>
-        /// Set or change the start date
-        /// </summary>
-        /// <param name="date"></param>
-        public void SetStartDate(DateTime date)
-        {
-            this.startDate = date;
+            Schedules.Add(schedule);
         }
         #endregion
 
         #region Get Methods
-        /// <summary>
-        /// Return the logbook of the project
-        /// </summary>
-        /// <returns></returns>
-        public Logbook GetLogbook()
-        {
-            return this.logbook;
-        }
-
-        /// <summary>
-        /// Returns the end date of the project
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetEndDate()
-        {
-            return this.endDate;
-        }
-
-        /// <summary>
-        /// Returns the start date of the project
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetStartDate()
-        {
-            return this.startDate;
-        }
-        
-        /// <summary>
-        /// Returns the schedules's list of the project
-        /// </summary>
-        /// <returns></returns>
-        public List<Schedule> GetSchedules()
-        {
-            return this.schedules;
-        }
 
         /// <summary>
         /// Returns if the user is in working time
@@ -114,12 +67,12 @@ namespace Logy.Logbook
         /// <returns>bool</returns>
         public bool IsInWorkingTime()
         {
-            foreach (Schedule schedule in schedules)
+            foreach (Schedule schedule in Schedules)
             {
                 if (schedule.Day == DateTime.Now.DayOfWeek)
                 {
-                    DateTime currentTime = new DateTime(0, 0, 0, DateTime.Now.Hour, DateTime.Now.Minute, 0);
-                    if (DateTime.Compare(schedule.startHour, currentTime) >= 0 && DateTime.Compare(schedule.endHour, currentTime) < 0)
+                    DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                    if (DateTime.Compare(currentTime,schedule.StartHour) >= 0 && DateTime.Compare(currentTime,schedule.EndHour) < 0)
                     {
                         return true;
                     }
