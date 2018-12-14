@@ -41,6 +41,12 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 #### MCD
 ![mcd](./images/MCD.png)
 
+#### Maquette
+![home](./images/maquette/1.png)
+![register](./images/maquette/2.png)
+![home](./images/maquette/3.png)
+![option](./images/maquette/4.png)
+
 #### Cas d'utilisation
 ![usecases](./images/UseCase.png)
 
