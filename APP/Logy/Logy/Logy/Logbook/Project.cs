@@ -52,7 +52,11 @@ namespace Logy.Logbook
         {
             this.Logbook = new Logbook();
         }
-
+        
+        /// <summary>
+        /// Add a schedule for the project
+        /// </summary>
+        /// <param name="schedule"></param>
         public void AddSchedule(Schedule schedule)
         {
             Schedules.Add(schedule);
