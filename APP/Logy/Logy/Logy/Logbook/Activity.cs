@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -13,20 +14,28 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Activity that contains activity's informations
     /// </summary>
-    public class Activity
+    public class Activity : RealmObject
     {
         #region variables
+        public int ID { get; private set; }
         public string Title {get;set;}//Title of the activity
         public string Description {get;set;}//Description of the activity
-        public DateTime StartHour {get; private set;}//Start hour of the activity
-        public DateTime EndHour { get; private set;}//End hour of the activity
+        public DateTimeOffset StartHour {get; private set;}//Start hour of the activity
+        public DateTimeOffset EndHour { get; private set;}//End hour of the activity
         public string Location {get;set;}//Location of the activity
         #endregion
 
         #region Constructor
+
+        public Activity()
+        {
+            this.Title = "";
+            this.Description = "";
+            this.StartHour = DateTime.Now;
+        }
+
         /// <summary>
         /// Constructor of the class
-
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>

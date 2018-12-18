@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -13,15 +14,25 @@ namespace Logy.Logbook
     /// <summary>
     /// Class User that contains user informations
     /// </summary>
-     public class User
+    public class User : RealmObject
     {
         #region Variables
+        public int ID { get; private set; }
         public string Username { get; private set; } //Username of the user
         public string Email { get; private set;} //Email of the user
+        [Ignored]
         public List<Project> Projects {get; private set;} //Projects of the user
+
+        public IList<int> ProjectsID;
         #endregion
 
         #region Constructor
+
+        public User()
+        {
+
+        }
+
         /// <summary>
         /// Constructor of the class
         /// </summary>

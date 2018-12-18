@@ -2,8 +2,12 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SQLite;
 using System.IO;
+using Xamarin.Forms;
+using Realms;
+using Logy.Logbook;
+using System.Linq;
+using Realms.Exceptions;
 
 namespace Logy.Database
 {
@@ -12,82 +16,94 @@ namespace Logy.Database
     /// </summary>
     class DatabaseManager
     {
-        private static string _sqliteFile = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)+"logyDB.sqlite";
 
         /// <summary>
         /// Connection to the database
         /// </summary>
         /// <returns></returns>
-        public static SQLiteConnection Connect()
+        public static Realm GetDB()
         {
-            if (!File.Exists(_sqliteFile))
-            {
-                SQLiteConnection.CreateFile(_sqliteFile);
-                MountDatabase();
-            }
+            var config = new RealmConfiguration("Logy.realm");
+            Realm realm;
 
             try
             {
-                SQLiteConnection connection = new SQLiteConnection(_sqliteFile);
-                connection.Open();
+                realm = Realm.GetInstance(config);
 
-                return connection;
+                return realm;
+            }
+            catch (RealmMigrationNeededException r)
+            {
+                Realm.DeleteRealm(config);
+                realm = Realm.GetInstance(config);
+
+                return realm;
             }
             catch (Exception e)
-            {
+            {     
                 return null;
             }
         }
 
         /// <summary>
-        /// Create the default database structure
+        /// Send a select query to the SQLiteDatabase
         /// </summary>
-        private static void MountDatabase()
+        /// <param name="query"></param>s
+        /// <returns></returns>
+        public static List<T> Select<T>(Func<T, bool> query) where T : RealmObject
         {
-            SQLiteConnection connection = Connect();
-            string script = File.ReadAllText(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "CreateDatabase.sql");
+            Realm realm = GetDB();
 
-            SQLiteCommand command = new SQLiteCommand(script, connection);
-            command.ExecuteNonQuery();
+            List<T> results = realm.All<T>().Where(query).ToList();
 
-            command = new SQLiteCommand("insert into user values(0, \"Dorian\", \"ui\", \"pass\")", connection);
-            command.ExecuteNonQuery();
+            return results;
         }
 
         /// <summary>
         /// Send a select query to the SQLiteDatabase
         /// </summary>
-        /// <param name="query"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<Dictionary<string, string>> Select(string query)
+        public static List<T> Select<T>() where T : RealmObject
         {
-            SQLiteConnection dbConnection;
-            if ((dbConnection = Connect()) != null)
-            {
-                SQLiteCommand selectQuery = new SQLiteCommand(query, dbConnection);
-                SQLiteDataReader reader = selectQuery.ExecuteReader();
+            Realm realm = GetDB();
 
-                List<Dictionary<string, string>> results = new List<Dictionary<string, string>>();
+            List<T> results = realm.All<T>().ToList();
 
-                while (reader.Read())
-                {
-                    Dictionary<string, string> line = new Dictionary<string, string>();
-
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        line.Add(reader.GetName(i), reader[i].ToString());
-                    }
-
-                    results.Add(line);
-                }
-                reader.Close();
-                dbConnection.Close();
-
-                return results;
-
-            }
-            return new List<Dictionary<string, string>>();
+            return results;
         }
 
+        /// <summary>
+        /// Add entry in the database
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        public static void Insert<T>(T obj) where T : RealmObject
+        {
+            Realm realm = GetDB();
+
+            realm.Write(() =>
+            {                
+                realm.Add(obj);          
+            });
+        }
+
+        /// <summary>
+        /// Add entry in the database
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="objects"></param>
+        public static void Insert<T>(List<T> objects) where T : RealmObject
+        {
+            Realm realm = GetDB();
+
+            realm.Write(() =>
+            {
+                foreach (T o in objects)
+                {
+                    realm.Add(o);
+                }
+            });
+        }
     }
 }

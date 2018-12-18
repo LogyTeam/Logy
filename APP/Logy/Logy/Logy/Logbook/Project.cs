@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -13,19 +14,32 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Project that contains project informations
     /// </summary>
-    public class Project
+    public class Project : RealmObject
     {
         #region variables
+        public int ID { get; private set; }
         public string Name { get; private set;}
-        public DateTime StartDate { get; private set; }
-        public DateTime EndDate { get; private set; }
+        public DateTimeOffset StartDate { get; private set; }
+        public DateTimeOffset EndDate { get; private set; }
         public string NomMembre { get; private set; }
         public User User { get; private set; }
         public Logbook Logbook { get; private set; }
+        [Ignored]
         public List<Schedule> Schedules { get; private set; }
+
+        public IList<int> SchedulesID;
         #endregion
 
         #region Constructor 
+
+        public Project()
+        {
+            this.Name = "";
+            this.StartDate = DateTime.Now;
+            this.User = null;
+            this.Schedules = new List<Schedule>();
+        }
+
         /// <summary>
         /// Constructor of the class
         /// </summary>
@@ -75,8 +89,8 @@ namespace Logy.Logbook
             {
                 if (schedule.Day == DateTime.Now.DayOfWeek)
                 {
-                    DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-                    if (DateTime.Compare(currentTime,schedule.StartHour) >= 0 && DateTime.Compare(currentTime,schedule.EndHour) < 0)
+                    DateTimeOffset currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                    if (DateTimeOffset.Compare(currentTime,schedule.StartHour) >= 0 && DateTimeOffset.Compare(currentTime,schedule.EndHour) < 0)
                     {
                         return true;
                     }
