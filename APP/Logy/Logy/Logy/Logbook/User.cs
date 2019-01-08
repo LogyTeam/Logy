@@ -19,6 +19,7 @@ namespace Logy.Logbook
         #region Variables
         public int ID { get; private set; }
         public string Username { get; private set; } //Username of the user
+        public string Password { get; private set;}
         public string Email { get; private set;} //Email of the user
         [Ignored]
         public List<Project> Projects {get; private set;} //Projects of the user
@@ -38,10 +39,10 @@ namespace Logy.Logbook
         /// </summary>
         /// <param name="name"></param>
         /// <param name="mail"></param>
-        public User(string name,string mail)
+        public User(string mail, string password)
         {
-            this.Username = name;
             this.Email = mail;
+            this.Password = password;
             this.Projects = new List<Project>();
         }
         #endregion

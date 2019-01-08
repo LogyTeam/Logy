@@ -7,7 +7,9 @@ using Xamarin.Forms;
 using Realms;
 using Logy.Logbook;
 using System.Linq;
+using Xamarin.Forms;
 using Realms.Exceptions;
+
 
 namespace Logy.Database
 {
@@ -40,7 +42,7 @@ namespace Logy.Database
                 return realm;
             }
             catch (Exception e)
-            {     
+            {
                 return null;
             }
         }

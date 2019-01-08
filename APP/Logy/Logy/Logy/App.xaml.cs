@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logy.Logbook;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +8,7 @@ namespace Logy
 {
     public partial class App : Application
     {
+        User user;
         public App()
         {
             InitializeComponent();

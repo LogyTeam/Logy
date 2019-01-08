@@ -2,18 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Logy.RegisterPage" BackgroundColor="#666666">
-
-    <StackLayout Padding="20,20,20,20" VerticalOptions="Center" >
-        <Label TextColor="White" FontSize="60" Text="Inscription" HorizontalTextAlignment="Center"></Label>
-        <StackLayout Padding="30,30,30,30" BackgroundColor="#AD2AD5" >
-            <Label Text="Email :" />
-            <Entry Placeholder="Par exemple : philibert" x:Name="txtEmail"/>
-            <Label Text="Mot de passe :" />
-            <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwd"/>
-            <Label Text="Confirmation :" />
-            <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwdConf"/>
-            <Button Text="Inscription" x:Name="btnRegister"></Button>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android">
+        <StackLayout Padding="20,20,20,20" VerticalOptions="Center" >
+            <Label TextColor="White" FontSize="60" Text="Inscription" HorizontalTextAlignment="Center"></Label>
+            <StackLayout Padding="30,30,30,30" BackgroundColor="#AD2AD5" >
+                <Label Text="Email :" />
+                <Entry Placeholder="Par exemple : philibert" x:Name="txtEmail"/>
+                <Label Text="Mot de passe :" />
+                <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwd"/>
+                <Label Text="Confirmation :" />
+                <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwdConf"/>
+                <Button Text="Inscription" x:Name="btnRegister" Clicked="BtnRegister_Clicked"></Button>
+            </StackLayout>
+            <Label Text="Déjà un compte ? C'est par ici que ça se passe !"></Label>
         </StackLayout>
-        <Label Text="Déjà un compte ? C'est par ici que ça se passe !"></Label>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>
