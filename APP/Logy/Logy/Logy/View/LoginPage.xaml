@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Logy"
-             x:Class="Logy.LoginPage" BackgroundColor="#666666">
+             xmlns:local="clr-namespace:Logy.View"
+             x:Class="Logy.View.LoginPage" BackgroundColor="#666666">
 
     <StackLayout Padding="20,20,20,20" VerticalOptions="Center" >
         <Label TextColor="White" FontSize="60" Text="Logy" HorizontalTextAlignment="Center"></Label>

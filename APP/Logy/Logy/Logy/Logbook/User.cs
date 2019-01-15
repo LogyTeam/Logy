@@ -16,9 +16,9 @@ namespace Logy.Logbook
      public class User
     {
         #region Variables
-        private string username; //Username of the user
-        private string email; //Email of the user
-        private List<Project> projects; //Projects of the user
+        public string Username { get; private set; } //Username of the user
+        public string Email { get; private set;} //Email of the user
+        public List<Project> Projects {get; private set;} //Projects of the user
         #endregion
 
         #region Constructor
@@ -29,8 +29,9 @@ namespace Logy.Logbook
         /// <param name="mail"></param>
         public User(string name,string mail)
         {
-            this.username = name;
-            this.email = mail;
+            this.Username = name;
+            this.Email = mail;
+            this.Projects = new List<Project>();
         }
         #endregion
 
@@ -49,9 +50,19 @@ namespace Logy.Logbook
         /// Method for create a new project for the user
         /// </summary>
         /// <param name="project"></param>
-        public void CreateProject(Project project)
+        public Project CreateProject(string name , DateTime StartDate)
         {
-            this.projects.Add(project);
+            Project project = new Project(name, StartDate, this);
+
+            if (this.Projects.Find(x => x.Name == name) == null)
+            {
+                this.Projects.Add(project);
+            }
+            else
+            {
+                throw new Exception("Il y a déja un projet du meme nom");
+            }
+            return project;
         }
         
         /// <summary>
@@ -60,40 +71,13 @@ namespace Logy.Logbook
         /// <param name="project"></param>
         public void RemoveProject(Project project)
         {
-            foreach (Project projectinlist in projects)
-            {
-                if (projectinlist == project)
-                {
-                    projects.RemoveAt(projects.IndexOf(projectinlist));            
-                }
-            }
+            Projects.Remove(project);
+
         }
-        #endregion
-
-        #region Get methods
-
-        /// <summary>
-        /// Get the username of the user
-        /// </summary>
-        /// <returns></returns>
-        public string GetUsername()
-        {
-            return this.username;
-        }
-
-
-        /// <summary>
-        /// Get the email of the user
-        /// </summary>
-        /// <returns></returns>
-        public string GetMail()
-        {
-            return this.email;
-        }
-
         #endregion
 
         #region Set methods
+
 
         /// <summary>
         /// Method that change the username of the user
@@ -101,7 +85,7 @@ namespace Logy.Logbook
         /// <param name="username"></param>
         public void ChangeUsername(string username)
         {
-            this.username = username;
+            this.Username = username;
         }
 
 

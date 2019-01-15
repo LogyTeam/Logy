@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Logy
+namespace Logy.View
 {
     public partial class App : Application
     {
@@ -11,7 +11,7 @@ namespace Logy
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new LogbookPage();
         }
 
         protected override void OnStart()

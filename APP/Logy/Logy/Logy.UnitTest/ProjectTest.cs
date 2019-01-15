@@ -5,7 +5,7 @@ using Logy.Logbook;
 namespace Logy.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ProjectTest
     {
         [TestMethod]
         public void AddProjectTest()
@@ -61,7 +61,7 @@ namespace Logy.UnitTest
             User user = new User("user1", "user@mail");
             Project project = user.CreateProject("project1", new DateTime(2018, 12, 11));
 
-            project.AddSchedule(new Schedule(DayOfWeek.Tuesday, new DateTime(0, 0, 0, 8, 0, 0), new DateTime(0, 0, 0, 17, 0, 0)));
+            project.AddSchedule(new Schedule(DayOfWeek.Tuesday, new DateTime(2018, 12, 11 ,8, 0, 0), new DateTime(2018 , 12 ,11 , 17, 0, 0)));
 
             Assert.AreEqual(true, project.IsInWorkingTime());
         }
@@ -71,13 +71,11 @@ namespace Logy.UnitTest
         {
             User user = new User("user1", "user@mail");
             Project project = user.CreateProject("project1", new DateTime(2018, 12, 11));
-
             Activity myActivity = new Activity("my activity", "C'était bien", new DateTime(2018, 12, 11, 8, 50, 0));
-
             project.Logbook.AddActivity(myActivity);
             myActivity.EndActivity();
 
-            Assert.AreEqual(DateTime.Now, myActivity.GetEndHour());
+            Assert.AreEqual(DateTime.Now.ToString(), myActivity.EndHour.ToString());
         }
 
     }

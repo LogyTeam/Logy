@@ -18,9 +18,9 @@ namespace Logy.Logbook
     public class Logbook
     {
         #region variables
-        private string userName; //Contains the logbook's username
-        private string userFîrstName; //Contains the logbook's user firstname
-        private List<Activity> activitylist; //Contains the logbooks's activities
+        public string UserName {get; private set;} //Contains the logbook's username
+        public string UserFîrstName {get; private set;} //Contains the logbook's user firstname
+        public List<Activity> Activitylist {get; private set;} //Contains the logbooks's activities
         #endregion
 
         #region Constructor
@@ -29,7 +29,7 @@ namespace Logy.Logbook
         /// </summary>
         public Logbook()
         {
-
+            this.Activitylist = new List<Activity>();
         }
         #endregion
 
@@ -41,7 +41,7 @@ namespace Logy.Logbook
         /// <param name="activity"></param>
         public void AddActivity(Activity activity)
         {
-            activitylist.Add(activity);
+            Activitylist.Add(activity);
         }
 
         /// <summary>
@@ -50,11 +50,11 @@ namespace Logy.Logbook
         /// <param name="activity"></param>
         public void RemoveActivity(Activity activity)
         {
-            foreach (Activity activityinlist in activitylist)
+            foreach (Activity activityinlist in Activitylist)
             {
                 if (activityinlist == activity)
                 {
-                   activitylist.RemoveAt(activitylist.IndexOf(activityinlist));
+                   Activitylist.RemoveAt(Activitylist.IndexOf(activityinlist));
 
                 }
             }
@@ -66,16 +66,16 @@ namespace Logy.Logbook
         /// <param name="name"></param>
         public void SetUserName(string name)
         {
-            this.userName = name;
+            this.UserName = name;
         }
 
         /// <summary>
         /// Set the logbook's user firstname
         /// </summary>
         /// <param name="firstname"></param>
-        public void setUserFirstName(string firstname)
+        public void SetUserFirstName(string firstname)
         {
-            this.userFîrstName = firstname;
+            this.UserFîrstName = firstname;
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Logy.Logbook
         /// <returns></returns>
         public string GetUserName()
         {
-            return this.userName;
+            return this.UserName;
         }
         /// <summary>
         ///         Get the logbook's user firstname
@@ -92,7 +92,7 @@ namespace Logy.Logbook
         /// <returns></returns>
         public string GetUserFirstName()
         {
-            return this.userFîrstName;
+            return this.UserFîrstName;
         }
         #endregion
     }

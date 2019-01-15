@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Logy
+namespace Logy.View
 {
     public partial class LoginPage : ContentPage
     {

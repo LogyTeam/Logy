@@ -16,9 +16,18 @@ namespace Logy.Logbook
     public class Schedule
     {
         #region Variables
-        public DayOfWeek Day; //Day Of the week
-        public DateTime startHour; //Working starting hour
-        public DateTime endHour; //Working ending hour
+        public DayOfWeek Day { get; private set;}//Day Of the week
+        public DateTime StartHour { get; private set; } //Working starting hour
+        public DateTime EndHour { get; private set; } //Working ending hour
+        #endregion
+
+        #region Constructor
+        public Schedule(DayOfWeek day,DateTime start,DateTime end)
+        {
+            this.Day = day;
+            this.StartHour = start;
+            this.EndHour = end;
+        }
         #endregion
     }
 }

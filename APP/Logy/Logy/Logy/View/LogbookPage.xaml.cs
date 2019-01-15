@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Logy
+namespace Logy.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterPage : ContentPage
+	public partial class LogbookPage : ContentPage
 	{
-		public RegisterPage ()
+		public LogbookPage ()
 		{
 			InitializeComponent ();
 		}

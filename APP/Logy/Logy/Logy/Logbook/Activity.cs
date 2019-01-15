@@ -16,11 +16,11 @@ namespace Logy.Logbook
     public class Activity
     {
         #region variables
-        private string title;       //Title of the activity
-        private string description; //Description of the activity
-        private DateTime startHour; //Start hour of the activity
-        private DateTime endHour;   //End hour of the activity
-        private string location;    //Location of the activity
+        public string Title {get;set;}//Title of the activity
+        public string Description {get;set;}//Description of the activity
+        public DateTime StartHour {get; private set;}//Start hour of the activity
+        public DateTime EndHour { get; private set;}//End hour of the activity
+        public string Location {get;set;}//Location of the activity
         #endregion
 
         #region Constructor
@@ -33,9 +33,9 @@ namespace Logy.Logbook
         /// <param name="startHour"></param>
         public Activity(string title,string description,DateTime startHour)
         {
-            this.title = title;
-            this.description = description;
-            this.startHour = startHour;
+            this.Title = title;
+            this.Description = description;
+            this.StartHour = startHour;
         }
         #endregion
 
@@ -45,28 +45,9 @@ namespace Logy.Logbook
         /// <summary>
         /// Set the end hour of the activity
         /// </summary>
-        /// <param name="endHour"></param>
-        public void EndActivity(DateTime endHour)
+        public void EndActivity()
         {
-            this.endHour = endHour;
-        }
-
-        /// <summary>
-        /// Set or change the title of the activity
-        /// </summary>
-        /// <param name="title"></param>
-        public void SetTitle(string title)
-        {
-            this.title = title;
-        }
-
-        /// <summary>
-        ///Set or change the description
-        /// </summary>
-        /// <param name="description"></param>
-        public void SetDescription(string description)
-        {
-            this.description = description;
+            this.EndHour = DateTime.Now;
         }
 
         /// <summary>
@@ -75,7 +56,7 @@ namespace Logy.Logbook
         /// <param name="hour"></param>
         public void SetStartHour(DateTime hour)
         {
-            this.startHour = hour;
+            this.StartHour = hour;
         }
 
         /// <summary>
@@ -84,66 +65,11 @@ namespace Logy.Logbook
         /// <param name="hour"></param>
         public void SetEndHour(DateTime hour)
         {
-            this.endHour = hour;
-        }
-
-        /// <summary>
-        /// Set or change the location of the activity
-        /// </summary>
-        /// <param name="location"></param>
-        public void SetLocation(string location)
-        {
-            this.location = location;
+            this.EndHour = hour;
         }
 
         #endregion
 
-        #region Get Methods
-        /// <summary>
-        /// Return the title of the activity 
-        /// </summary>
-        /// <returns>String title</returns>
-        public string GetTitle()
-        {
-            return this.title;
-        }
-
-        /// <summary>
-        /// Return the description of the activity 
-        /// </summary>
-        /// <returns></returns>
-        public string GetDescription()
-        {
-            return this.description;
-        }
-
-        /// <summary>
-        /// Return the start hour of the activity
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetStartHour()
-        {
-            return this.startHour;
-        }
-
-        /// <summary>
-        /// Return the end hour of the activity
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetEndHour()
-        {
-            return this.endHour;
-        }
-
-        /// <summary>
-        /// return the location of the activity
-        /// </summary>
-        /// <returns></returns>
-        public string GetLocation()
-        {
-            return this.location;
-        }
-        #endregion
         #endregion
     }
 }
