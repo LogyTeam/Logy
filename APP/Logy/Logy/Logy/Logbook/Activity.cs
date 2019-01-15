@@ -1,5 +1,4 @@
-﻿using Realms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -14,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Activity that contains activity's informations
     /// </summary>
-    public class Activity : RealmObject
+    public class Activity
     {
         #region variables
         public int ID { get; private set; }

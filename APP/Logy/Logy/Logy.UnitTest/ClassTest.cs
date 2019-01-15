@@ -5,7 +5,7 @@ using Logy.Logbook;
 namespace Logy.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ClassTest
     {
         [TestMethod]
         public void AddProjectTest()

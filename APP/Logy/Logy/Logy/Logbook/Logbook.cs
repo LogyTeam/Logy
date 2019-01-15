@@ -1,5 +1,4 @@
-﻿using Realms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,13 +15,12 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Logbook that contains user's logbook information
     /// </summary>
-    public class Logbook : RealmObject
+    public class Logbook
     {
         #region variables
         public int ID { get; private set; }
         public string UserName {get; private set;} //Contains the logbook's username
         public string UserFîrstName {get; private set;} //Contains the logbook's user firstname
-        [Ignored]
         public List<Activity> Activitylist {get; private set;} //Contains the logbooks's activities
 
         public IList<int> ActivityID;

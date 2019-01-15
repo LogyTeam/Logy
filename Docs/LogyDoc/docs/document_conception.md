@@ -28,10 +28,11 @@ Pour la réalisation de cet application nous utilisons les outils/logiciels et l
 
 ###### Librairies/Framework
 * Xamarin - Permet la réalisation d'applications mobiles
-* SQLite
+* Realms - Système de base de donnée comme SQLite optimisé pour Xamarin
 
 ### 3. Base de données
 MCD et MLD de la base de données.
+
 #### 3.1 MCD
 ![MCD](./images/MCD.png)
 

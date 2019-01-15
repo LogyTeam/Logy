@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Logy.Logbook;
 using System.Security.Cryptography;
+using Logy.Database.Tables;
 
 namespace Logy
 {
@@ -68,7 +69,7 @@ namespace Logy
         }
         private void CreateAccount(string email, string password)
         {
-            DatabaseManager.Insert(new User(email,HashMethod(password)));
+            DatabaseManager.GetDB().Query<Users>("INSERT INTO Users VALUES(0, \"\", \""+email+"\", \""+ HashMethod(password) + "\")");
             App.Current.MainPage = new LoginPage();
         }
         private string HashMethod(string passwrd)

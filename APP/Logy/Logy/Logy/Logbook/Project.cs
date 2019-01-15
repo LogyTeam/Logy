@@ -1,5 +1,4 @@
-﻿using Realms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -14,7 +13,7 @@ namespace Logy.Logbook
     /// <summary>
     /// Class Project that contains project informations
     /// </summary>
-    public class Project : RealmObject
+    public class Project
     {
         #region variables
         public int ID { get; private set; }
@@ -24,7 +23,6 @@ namespace Logy.Logbook
         public string NomMembre { get; private set; }
         public User User { get; private set; }
         public Logbook Logbook { get; private set; }
-        [Ignored]
         public List<Schedule> Schedules { get; private set; }
 
         public IList<int> SchedulesID;
