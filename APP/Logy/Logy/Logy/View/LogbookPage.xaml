@@ -20,52 +20,13 @@ xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.Xa
 
 
             <ScrollView>
-                <Grid x:Name="st">
+                <Grid x:Name="gr">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-
-                    <Button Text="01" Grid.Column="0" Grid.Row="0" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="02" Grid.Column="1" Grid.Row="0" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="03" Grid.Column="2" Grid.Row="0" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="04" Grid.Column="3" Grid.Row="0" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="05" Grid.Column="4" Grid.Row="0" BackgroundColor="LightSteelBlue"></Button>
-                    
-                    <Button Text="06" Grid.Column="0" Grid.Row="1" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="07" Grid.Column="1" Grid.Row="1" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="08" Grid.Column="2" Grid.Row="1" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="09" Grid.Column="3" Grid.Row="1" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="10" Grid.Column="4" Grid.Row="1" BackgroundColor="LightSteelBlue"></Button>
-                    
-                    <Button Text="11" Grid.Column="0" Grid.Row="2" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="12" Grid.Column="1" Grid.Row="2" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="13" Grid.Column="2" Grid.Row="2" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="14" Grid.Column="3" Grid.Row="2" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="15" Grid.Column="4" Grid.Row="2" BackgroundColor="LightSteelBlue"></Button>
-                    
-                    <Button Text="16" Grid.Column="0" Grid.Row="3" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="17" Grid.Column="1" Grid.Row="3" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="18" Grid.Column="2" Grid.Row="3" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="19" Grid.Column="3" Grid.Row="3" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="20" Grid.Column="4" Grid.Row="3" BackgroundColor="LightSteelBlue"></Button>
-                    
-                    <Button Text="21" Grid.Column="0" Grid.Row="4" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="22" Grid.Column="1" Grid.Row="4" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="23" Grid.Column="2" Grid.Row="4" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="24" Grid.Column="3" Grid.Row="4" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="25" Grid.Column="4" Grid.Row="4" BackgroundColor="LightSteelBlue"></Button>
-                    
-                    <Button Text="26" Grid.Column="0" Grid.Row="5" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="27" Grid.Column="1" Grid.Row="5" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="28" Grid.Column="2" Grid.Row="5" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="29" Grid.Column="3" Grid.Row="5" BackgroundColor="LightSteelBlue"></Button>
-                    <Button Text="30" Grid.Column="4" Grid.Row="5" BackgroundColor="LightSteelBlue"></Button>
-
-
-                    <Button Text="31" Grid.Column="0" Grid.Row="6" BackgroundColor="LightSteelBlue"></Button>
 
                 </Grid>
             </ScrollView>
