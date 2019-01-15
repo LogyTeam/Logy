@@ -85,8 +85,10 @@ namespace Logy
             }
             else
             {
-                
-                DisplayAlert("OK : ", "T'es un bon gars !", "OK");
+                User user = new User(email,passwrd);
+                App.Current.MainPage = new MainPage();
+
+                App.user = user;
             }
 
         }
