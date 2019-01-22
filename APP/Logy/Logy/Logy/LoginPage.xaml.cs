@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using System.Security.Cryptography;
 using Logy.Database.Tables;
 using Logy.Classes;
+using SQLite;
 
 namespace Logy
 {
@@ -75,19 +76,20 @@ namespace Logy
         private void Connection(string email, string passwrd)
         {
             passwrd = HashMethod(passwrd);
-            List<Users> users = DatabaseManager.GetDB().Query<Users>("SELECT * FROM Users WHERE Email=\""+email+"\" AND Password=\""+passwrd+"\"");
+            SQLiteConnection sql = DatabaseManager.GetDB();
+            List<Users> users = sql.Query<Users>("SELECT * FROM USERS WHERE Email=\""+email+"\" AND Password=\""+passwrd+"\"");
+            sql.Close();
+
             if (users.Count == 0)
             {
                 DisplayAlert("Erreur : ", "Email ou mot de passe incorrect", "OK");
             }
             else
             {
+                User user = users[0].CreateObject();
+                App.user = user;
 
                 App.Current.MainPage = new MainPage();
-
-                App.user = users[0].CreateObject();
-
-
             }
 
         }

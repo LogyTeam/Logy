@@ -8,7 +8,7 @@ namespace Logy
 {
     public partial class App : Application
     {
-        public static User user;
+        public static User user = null;
         public App()
         {
             InitializeComponent();

@@ -30,6 +30,10 @@ namespace Logy.Database
             SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName, false);
             
             db.CreateTable<Users>();
+            db.CreateTable<Projects>();
+            db.CreateTable<Logbooks>();
+            db.CreateTable<Activities>();
+
         }
 
         /// <summary>

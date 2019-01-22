@@ -20,7 +20,7 @@ namespace Logy.Database.Tables
 
         public override User CreateObject()
         {
-            return new User(this.Email, this.Username);
+            return new User(idUSER ,this.Email, this.Username);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Logy.Database.Tables
 
         [PrimaryKey, AutoIncrement]
         public int idLogbook { get; set; }
+        public int fk_idPROJECT { get; set; }
         [MaxLength(100)]
         public string Name { get; set; }
         [MaxLength(100)]

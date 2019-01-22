@@ -40,6 +40,7 @@ namespace Logy.Classes
             this.Email = mail;
             this.Username = username;
             LoadProject();
+            
         }
         #endregion
 
@@ -51,7 +52,10 @@ namespace Logy.Classes
         /// </summary>
         private void LoadProject()
         {
-            List<Projects> DBprojects = DatabaseManager.GetDB().Query<Projects>("SELECT * FROM PROJECTS where fk_idUSER ="+ id);
+            SQLiteConnection sql = DatabaseManager.GetDB();
+            List<Projects> DBprojects = sql.Query<Projects>("SELECT * FROM PROJECTS where fk_idUSER ="+ this.id);
+            sql.Close();
+
             List<Project> projects = new List<Project>();
 
             foreach (Projects p in DBprojects)
@@ -66,19 +70,20 @@ namespace Logy.Classes
         /// Method for create a new project for the user
         /// </summary>
         /// <param name="project"></param>
-        public Project CreateProject(string name , DateTime StartDate)
+        public void CreateProject(string name , DateTime StartDate)
         {
-            Project project = new Project(name, StartDate, this);
+            //Project project = new Project(name, StartDate, this);
 
-            if (this.Projects.Find(x => x.Name == name) == null)
-            {
-                DatabaseManager.GetDB().Execute("INSERT into PROJECTS(fk_idUSER,Name,Description,StartDate,fk_idLOGBOOK) VALUES("+ App.user.id + ", '" +name +"', '', "+ StartDate +"");
-            }
-            else
-            {
-                throw new Exception("Il y a déja un projet du meme nom");
-            }
-            return project;
+            DatabaseManager.GetDB().Execute("INSERT into PROJECTS(fk_idUSER,Name,Description,StartDate) VALUES("+ this.id + ", '" +name +"', '', '"+ StartDate +"')");
+            /*SQLiteCommand command = DatabaseManager.GetDB().CreateCommand("select last_insert_rowid();");
+
+            List<int> res = command.ExecuteQuery<int>();
+
+            DatabaseManager.GetDB().Execute("INSERT into LOGBOOK(fk_idPROJECT,Name,FirstName) VALUES(" + res[0] + ", '', '', ''");*/
+         
+
+
+            LoadProject();
         }
         
         /// <summary>

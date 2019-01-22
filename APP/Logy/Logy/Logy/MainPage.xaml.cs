@@ -18,8 +18,6 @@ namespace Logy
 		{
 			InitializeComponent ();
             loadProject();
-
-
         }
 
         public void loadProject()
@@ -29,6 +27,7 @@ namespace Logy
             {
                 
             };
+
             StackLayout mainStack = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
@@ -46,34 +45,42 @@ namespace Logy
                 Margin = new Thickness(0, 0, 1, 1),
                 BackgroundColor = Color.FromRgb(0,175,247),
             };
+
             Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
             titleStack.Children.Add(title);
 
-            mainStack.Children.Add(titleStack);
-            foreach (Project p in App.user.Projects)
-            {
-                StackLayout projectStack = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    Margin = new Thickness(0, 1, 1, 1),
-                    BackgroundColor = Color.LightSteelBlue,
-                    StyleId = p.id.ToString(),
+            Button newButton = new Button { Text = "New", Command = new Command(() => App.user.CreateProject("NewProject", DateTime.Now))};
+            titleStack.Children.Add(newButton);
 
-                    GestureRecognizers =
+            mainStack.Children.Add(titleStack);
+
+            if (App.user != null)
+            {
+                foreach (Project p in App.user.Projects)
+                {
+                    StackLayout projectStack = new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        Margin = new Thickness(0, 1, 1, 1),
+                        BackgroundColor = Color.LightSteelBlue,
+                        StyleId = p.id.ToString(),
+
+                        GestureRecognizers =
                     {
                         new TapGestureRecognizer {Command = new Command (()=>Debug.WriteLine ("clicked")),},
                     }
-                };
+                    };
 
-                Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
+                    Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
 
-                Label lbl = new Label { FontSize = 26, Text = p.Name, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
-                projectStack.Children.Add(img);
-                projectStack.Children.Add(lbl);
-                mainStack.Children.Add(projectStack);
+                    Label lbl = new Label { FontSize = 26, Text = p.Name, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+                    projectStack.Children.Add(img);
+                    projectStack.Children.Add(lbl);
+                    mainStack.Children.Add(projectStack);
+
+                }
 
             }
-
             mainScroll.Content = mainStack;
 
             Content = mainScroll;
@@ -81,6 +88,9 @@ namespace Logy
 
         }
 
-    
+        private void btnNew_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
