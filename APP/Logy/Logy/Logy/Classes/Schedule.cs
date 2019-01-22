@@ -8,7 +8,7 @@ using System.Text;
 /// Modification Date : 30.11.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Schedule that contains the schedule of the user 

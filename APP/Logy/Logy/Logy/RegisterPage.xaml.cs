@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Logy.Logbook;
 using System.Security.Cryptography;
 using Logy.Database.Tables;
 

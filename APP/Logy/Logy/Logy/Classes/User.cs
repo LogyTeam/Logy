@@ -9,7 +9,7 @@ using System.Text;
 /// Modification Date : 04.12.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class User that contains user informations
@@ -17,13 +17,11 @@ namespace Logy.Logbook
     public class User
     {
         #region Variables
-        public int ID { get; private set; }
         public string Username { get; private set; } //Username of the user
         //public string Password { get; private set;}
         public string Email { get; private set;} //Email of the user
         public List<Project> Projects {get; private set;} //Projects of the user
 
-        public IList<int> ProjectsID;
         #endregion
 
         #region Constructor

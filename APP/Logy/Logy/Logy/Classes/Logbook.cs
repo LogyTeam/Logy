@@ -10,7 +10,7 @@ using System.Text;
 /// Modified by : Jason Crisante
 /// </summary>
 
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Logbook that contains user's logbook information
@@ -18,12 +18,9 @@ namespace Logy.Logbook
     public class Logbook
     {
         #region variables
-        public int ID { get; private set; }
         public string UserName {get; private set;} //Contains the logbook's username
-        public string UserFîrstName {get; private set;} //Contains the logbook's user firstname
+        public string UserFirstName {get; private set;} //Contains the logbook's user firstname
         public List<Activity> Activitylist {get; private set;} //Contains the logbooks's activities
-
-        public IList<int> ActivityID;
         #endregion
 
         #region Constructor
@@ -33,6 +30,13 @@ namespace Logy.Logbook
         public Logbook()
         {
             this.Activitylist = new List<Activity>();
+        }
+
+        public Logbook(string userName, string userFirstname, List<Activity> activities)
+        {
+            this.UserName = userName;
+            this.UserFirstName = userFirstname;
+            this.Activitylist = activities;
         }
         #endregion
 
@@ -78,7 +82,7 @@ namespace Logy.Logbook
         /// <param name="firstname"></param>
         public void SetUserFirstName(string firstname)
         {
-            this.UserFîrstName = firstname;
+            this.UserFirstName = firstname;
         }
 
         /// <summary>
@@ -95,7 +99,7 @@ namespace Logy.Logbook
         /// <returns></returns>
         public string GetUserFirstName()
         {
-            return this.UserFîrstName;
+            return this.UserFirstName;
         }
         #endregion
     }

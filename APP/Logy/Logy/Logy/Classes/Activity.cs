@@ -8,7 +8,7 @@ using System.Text;
 /// Modification Date : 04.12.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Activity that contains activity's informations
@@ -19,8 +19,8 @@ namespace Logy.Logbook
         public int ID { get; private set; }
         public string Title {get;set;}//Title of the activity
         public string Description {get;set;}//Description of the activity
-        public DateTimeOffset StartHour {get; private set;}//Start hour of the activity
-        public DateTimeOffset EndHour { get; private set;}//End hour of the activity
+        public DateTime StartHour {get; private set;}//Start hour of the activity
+        public DateTime EndHour { get; private set;}//End hour of the activity
         public string Location {get;set;}//Location of the activity
         #endregion
 
@@ -44,6 +44,15 @@ namespace Logy.Logbook
             this.Title = title;
             this.Description = description;
             this.StartHour = startHour;
+        }
+
+        public Activity(string title, string description, DateTime startHour, DateTime endHour, string location)
+        {
+            this.Title = title;
+            this.Description = description;
+            this.StartHour = startHour;
+            this.EndHour = endHour;
+            this.Location = location;
         }
         #endregion
 

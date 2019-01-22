@@ -1,5 +1,4 @@
 ﻿using Logy.Database;
-using Logy.Logbook;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Logy.Database.Tables;
-using Logy.Logbook;
 using SQLite;
 
 namespace Logy.Database
@@ -28,7 +27,7 @@ namespace Logy.Database
                 File.Create(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName);
             }
 
-            SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName);
+            SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName, false);
             
             db.CreateTable<Users>();
         }
@@ -42,10 +41,9 @@ namespace Logy.Database
             
             CreateDB();
             
-
             try
             {
-                SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName);
+                SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName, false);
                 return db;
             }
             catch (Exception e)

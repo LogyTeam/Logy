@@ -1,4 +1,4 @@
-﻿using Logy.Logbook;
+﻿using Logy.Classes;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Logy.Database.Tables
 {
-    [Table("Users")]
+    [Table("USERS")]
     public class Users : LogyTable<User>
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int idUSER { get; set; }
         [MaxLength(100)]
         public string Username { get; set; }
         [MaxLength(200)]
