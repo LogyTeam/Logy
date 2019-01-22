@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Logy.Logbook;
+using Logy.Classes;
 
 namespace Logy.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ClassTest
     {
         [TestMethod]
         public void AddProjectTest()

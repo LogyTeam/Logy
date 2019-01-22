@@ -1,5 +1,4 @@
-﻿using Realms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -9,16 +8,15 @@ using System.Text;
 /// Modification Date : 30.11.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Schedule that contains the schedule of the user 
     /// </summary>
-    public class Schedule : RealmObject
+    public class Schedule
     {
         #region Variables
         public int ID { get; private set; }
-        [Ignored]
         public DayOfWeek Day { get; private set;}//Day Of the week
 
         public string DayString;

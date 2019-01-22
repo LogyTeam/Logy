@@ -1,5 +1,4 @@
 ﻿using Logy.Database;
-using Logy.Logbook;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Security.Cryptography;
+using Logy.Database.Tables;
 
 namespace Logy
 {
@@ -21,7 +21,7 @@ namespace Logy
         }
 
 
-        public void BtnConnection_clicked(object sender, EventArgs e)
+        public void btnConnection_clicked(object sender, EventArgs e)
         {
             Regex rx = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
@@ -30,7 +30,6 @@ namespace Logy
 
             try
             {
-
                 if (email != "")
                 {
                     if (rx.Match(email).Success)
@@ -61,9 +60,6 @@ namespace Logy
                     throw new Exception("Vous n'avez pas rentrer d'email");
                 }
 
-
-
-
             }
             catch (Exception ex)
             {
@@ -78,17 +74,21 @@ namespace Logy
         private void Connection(string email, string passwrd)
         {
             passwrd = HashMethod(passwrd);
-            List < User > users = DatabaseManager.Select<User>(x => x.Email == email && x.Password == passwrd);
+            List<Users> users = DatabaseManager.GetDB().Query<Users>("SELECT * FROM Users WHERE Email=\""+email+"\" AND Password=\""+passwrd+"\"");
             if (users.Count == 0)
             {
                 DisplayAlert("Erreur : ", "Email ou mot de passe incorrect", "OK");
             }
             else
             {
+<<<<<<< HEAD
                 User user = new User(email,passwrd);
                 App.Current.MainPage = new MainPage();
 
                 App.user = user;
+=======
+                DisplayAlert("OK : ", "T'es un bon gars !", "OK");
+>>>>>>> dorian
             }
 
         }

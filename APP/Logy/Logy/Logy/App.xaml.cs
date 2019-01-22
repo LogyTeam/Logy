@@ -1,4 +1,4 @@
-﻿using Logy.Logbook;
+﻿using Logy.Classes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

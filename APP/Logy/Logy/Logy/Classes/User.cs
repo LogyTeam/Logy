@@ -1,4 +1,4 @@
-﻿using Realms;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,40 +9,32 @@ using System.Text;
 /// Modification Date : 04.12.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class User that contains user informations
     /// </summary>
-    public class User : RealmObject
+    public class User
     {
         #region Variables
-        public int ID { get; private set; }
         public string Username { get; private set; } //Username of the user
-        public string Password { get; private set;}
+        //public string Password { get; private set;}
         public string Email { get; private set;} //Email of the user
-        [Ignored]
         public List<Project> Projects {get; private set;} //Projects of the user
 
-        public IList<int> ProjectsID;
         #endregion
 
         #region Constructor
-
-        public User()
-        {
-
-        }
 
         /// <summary>
         /// Constructor of the class
         /// </summary>
         /// <param name="name"></param>
         /// <param name="mail"></param>
-        public User(string mail, string password)
+        public User(string mail, string username)
         {
             this.Email = mail;
-            this.Password = password;
+            this.Username = username;
             this.Projects = new List<Project>();
         }
         #endregion

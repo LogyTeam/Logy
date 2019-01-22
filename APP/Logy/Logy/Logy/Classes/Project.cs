@@ -1,5 +1,4 @@
-﻿using Realms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -9,36 +8,25 @@ using System.Text;
 /// Modification Date : 30.11.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Project that contains project informations
     /// </summary>
-    public class Project : RealmObject
+    public class Project
     {
         #region variables
-        public int ID { get; private set; }
         public string Name { get; private set;}
         public DateTimeOffset StartDate { get; private set; }
         public DateTimeOffset EndDate { get; private set; }
         public string NomMembre { get; private set; }
         public User User { get; private set; }
         public Logbook Logbook { get; private set; }
-        [Ignored]
         public List<Schedule> Schedules { get; private set; }
 
-        public IList<int> SchedulesID;
         #endregion
 
         #region Constructor 
-
-        public Project()
-        {
-            this.Name = "";
-            this.StartDate = DateTime.Now;
-            this.User = null;
-            this.Schedules = new List<Schedule>();
-        }
 
         /// <summary>
         /// Constructor of the class
@@ -46,13 +34,23 @@ namespace Logy.Logbook
         /// <param name="name"></param>
         /// <param name="startDate"></param>
         /// <param name="user"></param>
-        public Project(string name, DateTime startDate,User user)
+        public Project(string name, DateTime startDate, User user)
         {
             this.Name = name;
             this.StartDate = startDate;
             this.User = user;
             this.Schedules = new List<Schedule>();
             CreateLogbook();
+        }
+
+        public Project(string name, DateTime startDate, User user, DateTime endDate, List<Schedule> schedules, Logbook logbook)
+        {
+            this.Name = name;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this.User = user;
+            this.Schedules = schedules;
+            this.Logbook = logbook;
         }
         #endregion
 
