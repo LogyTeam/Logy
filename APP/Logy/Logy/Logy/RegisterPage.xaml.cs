@@ -68,7 +68,7 @@ namespace Logy
         }
         private void CreateAccount(string email, string password)
         {
-            DatabaseManager.GetDB().Query<Users>("INSERT INTO Users VALUES(0, \"\", \""+email+"\", \""+ HashMethod(password) + "\")");
+            DatabaseManager.GetDB().Execute("INSERT INTO Users(Username, Email, Password) VALUES(\"\", \"" + email+"\", \""+ HashMethod(password) + "\")");
             App.Current.MainPage = new LoginPage();
         }
         private string HashMethod(string passwrd)

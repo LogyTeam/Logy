@@ -27,7 +27,7 @@ namespace Logy.UnitTest
         {
             CreateDB();
 
-            User user1 = new User("user1", "...");
+            User user1 = new User(0,"user1", "...");
             DatabaseManager.GetDB().Execute("INSERT INTO USERS VALUES(0,\'"+user1.Username+"\', \'"+user1.Email+"\',\'Pa$$w0rd\')");
 
             int nbUser = DatabaseManager.GetDB().Query<Users>("SELECT * FROM USERS").Count;
@@ -40,10 +40,10 @@ namespace Logy.UnitTest
             CreateDB();
 
             List<User> users = new List<User>();
-            users.Add(new User("user1", "..."));
-            users.Add(new User("user2", "..."));
-            users.Add(new User("user3", "..."));
-            users.Add(new User("user4", "..."));
+            users.Add(new User(0,"user1", "..."));
+            users.Add(new User(1,"user2", "..."));
+            users.Add(new User(2,"user3", "..."));
+            users.Add(new User(3,"user4", "..."));
 
             foreach (User u in users)
             {

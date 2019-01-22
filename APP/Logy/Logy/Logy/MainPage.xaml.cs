@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Logy.Classes;
 
 namespace Logy
 {
@@ -23,6 +24,7 @@ namespace Logy
 
         public void loadProject()
         {
+
             ScrollView mainScroll = new ScrollView
             {
                 
@@ -48,23 +50,24 @@ namespace Logy
             titleStack.Children.Add(title);
 
             mainStack.Children.Add(titleStack);
-            for (int i = 0; i <= 4; i++)
+            foreach (Project p in App.user.Projects)
             {
                 StackLayout projectStack = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                Margin = new Thickness(0, 1, 1, 1),
-                BackgroundColor = Color.LightSteelBlue,
-
-                GestureRecognizers =
                 {
-                    new TapGestureRecognizer {Command = new Command (()=>Debug.WriteLine ("clicked")),},
-                }
-            };
+                    Orientation = StackOrientation.Horizontal,
+                    Margin = new Thickness(0, 1, 1, 1),
+                    BackgroundColor = Color.LightSteelBlue,
+                    StyleId = p.id.ToString(),
 
-            Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
+                    GestureRecognizers =
+                    {
+                        new TapGestureRecognizer {Command = new Command (()=>Debug.WriteLine ("clicked")),},
+                    }
+                };
 
-                Label lbl = new Label { FontSize = 26, Text = i.ToString(), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+                Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
+
+                Label lbl = new Label { FontSize = 26, Text = p.Name, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
                 projectStack.Children.Add(img);
                 projectStack.Children.Add(lbl);
                 mainStack.Children.Add(projectStack);

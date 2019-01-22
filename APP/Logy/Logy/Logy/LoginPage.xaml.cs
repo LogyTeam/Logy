@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Security.Cryptography;
 using Logy.Database.Tables;
+using Logy.Classes;
 
 namespace Logy
 {
@@ -81,14 +82,12 @@ namespace Logy
             }
             else
             {
-<<<<<<< HEAD
-                User user = new User(email,passwrd);
+
                 App.Current.MainPage = new MainPage();
 
-                App.user = user;
-=======
-                DisplayAlert("OK : ", "T'es un bon gars !", "OK");
->>>>>>> dorian
+                App.user = users[0].CreateObject();
+
+
             }
 
         }

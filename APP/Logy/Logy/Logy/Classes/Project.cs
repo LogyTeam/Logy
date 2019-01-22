@@ -15,7 +15,9 @@ namespace Logy.Classes
     /// </summary>
     public class Project
     {
+
         #region variables
+        public int id { get; private set; }
         public string Name { get; private set;}
         public DateTimeOffset StartDate { get; private set; }
         public DateTimeOffset EndDate { get; private set; }
@@ -34,8 +36,9 @@ namespace Logy.Classes
         /// <param name="name"></param>
         /// <param name="startDate"></param>
         /// <param name="user"></param>
-        public Project(string name, DateTime startDate, User user)
+        public Project(int i,string name, DateTime startDate, User user)
         {
+            this.id = i;
             this.Name = name;
             this.StartDate = startDate;
             this.User = user;
@@ -43,8 +46,9 @@ namespace Logy.Classes
             CreateLogbook();
         }
 
-        public Project(string name, DateTime startDate, User user, DateTime endDate, List<Schedule> schedules, Logbook logbook)
+        public Project(int i,string name, DateTime startDate, User user, DateTime endDate, List<Schedule> schedules, Logbook logbook)
         {
+            this.id = i;
             this.Name = name;
             this.StartDate = startDate;
             this.EndDate = endDate;
