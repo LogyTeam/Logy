@@ -73,7 +73,7 @@ namespace Logy
 
             mainScroll.Content = mainStack;
 
-            Content = mainStack;
+            Content = mainScroll;
 
 
         }
