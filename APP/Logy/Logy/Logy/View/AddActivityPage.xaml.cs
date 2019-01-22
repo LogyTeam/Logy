@@ -10,11 +10,15 @@ using Xamarin.Forms.Xaml;
 namespace Logy.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddProjectPage : ContentPage
+	public partial class AddActivityPage : ContentPage
 	{
-		public AddProjectPage ()
+
+		public AddActivityPage ()
 		{
 			InitializeComponent ();
+
+			startTime.Time = DateTime.Now.TimeOfDay;
+
 		}
 
 		private void Button_Clicked(object sender, EventArgs e)
