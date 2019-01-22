@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,12 +23,16 @@ namespace Logy
 
         public void loadProject()
         {
+            ScrollView mainScroll = new ScrollView
+            {
+                
+            };
             StackLayout mainStack = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
 
                 VerticalOptions = LayoutOptions.StartAndExpand,
-                Margin = new Thickness(0, 0.5, 1, 0),
+                Margin = new Thickness(0, 0, 1, 1),
                 BackgroundColor = Color.LightSteelBlue,
             };
 
@@ -36,57 +41,40 @@ namespace Logy
                 Orientation = StackOrientation.Vertical,
 
                 VerticalOptions = LayoutOptions.StartAndExpand,
-                Margin = new Thickness(0.50, 0.5, 1, 0),
-                BackgroundColor = Color.Green,
+                Margin = new Thickness(0, 0, 1, 1),
+                BackgroundColor = Color.FromRgb(0,175,247),
             };
             Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
             titleStack.Children.Add(title);
 
-
-
-            StackLayout projectStack = new StackLayout
+            mainStack.Children.Add(titleStack);
+            for (int i = 0; i <= 4; i++)
             {
-                Orientation = StackOrientation.Vertical,
+                StackLayout projectStack = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                Margin = new Thickness(0, 1, 1, 1),
+                BackgroundColor = Color.LightSteelBlue,
 
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                Margin = new Thickness(0.50, 0.5, 0.5, 0.5),
-                BackgroundColor = Color.Brown,
+                GestureRecognizers =
+                {
+                    new TapGestureRecognizer {Command = new Command (()=>Debug.WriteLine ("clicked")),},
+                }
             };
 
             Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
-            Label lbl = new Label { FontSize = 26, Text = "2", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0.50, 0.5, 0.5, 0.5) };
-            projectStack.Children.Add(img);
-            projectStack.Children.Add(lbl);
 
-            Image img2 = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
-            Label lbl2 = new Label { FontSize = 26, Text = "3", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0.50, 0.5, 0.5, 0.5) };
-            projectStack.Children.Add(img2);
-            projectStack.Children.Add(lbl2);
+                Label lbl = new Label { FontSize = 26, Text = i.ToString(), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+                projectStack.Children.Add(img);
+                projectStack.Children.Add(lbl);
+                mainStack.Children.Add(projectStack);
 
+            }
 
-            mainStack.Children.Add(titleStack);
-            mainStack.Children.Add(projectStack);
-
-
+            mainScroll.Content = mainStack;
 
             Content = mainStack;
-         /*   Content = new StackLayout
-            {
-                
-                Parent = st,
-                Orientation = StackOrientation.Horizontal,
-                
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                Margin = new Thickness(0, 0, 1, 0),
-                BackgroundColor = Color.LightSteelBlue,
-                Children =
-                {
-                                      
-                    new Image { HeightRequest = 100,Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" },
-                    new Label { FontSize=26,Text="2",HorizontalOptions=LayoutOptions.Center,VerticalOptions=LayoutOptions.Center },
-                }
-            };
-            */
+
 
         }
 
