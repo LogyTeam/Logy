@@ -11,7 +11,7 @@ namespace Logy.View
         {
             InitializeComponent();
 
-            MainPage = new LogbookPage();
+            MainPage = new AddProjectPage();
         }
 
         protected override void OnStart()

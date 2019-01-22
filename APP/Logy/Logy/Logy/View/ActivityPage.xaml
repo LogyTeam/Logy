@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Logy.View.Page1">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <Button Text="+" Image="C:\Logy\APP\Logy\Logy\Logy\Assets\Images\btnadd.png"></Button>
+            </AbsoluteLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

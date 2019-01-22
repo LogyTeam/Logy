@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Logy.View.AddProjectPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+                <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                    <Label Text="Projet" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
+                </StackLayout>
+
+                <Label Text="Nom du projet :"></Label>
+                <Entry x:Name="name" Placeholder="Ex : logy"></Entry>
+
+                <Label Text="Description :"></Label>
+                <Editor x:Name="description" HeightRequest="200"></Editor>
+
+                <Button Text="Crée le nouveau projet" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

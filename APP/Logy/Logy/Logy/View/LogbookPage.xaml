@@ -10,11 +10,8 @@ xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.Xa
                 <Label Text="Nagravision logbook" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Text="Précédent"/>
+            <StackLayout x:Name="dateMonth" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 
-                <Label VerticalOptions="Center" FontSize="20" Text="Janvier 2019" />
-                <Button Text="Suivant" />
             </StackLayout>
 
 
