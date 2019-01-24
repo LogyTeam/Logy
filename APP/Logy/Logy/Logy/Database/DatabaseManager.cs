@@ -14,6 +14,7 @@ namespace Logy.Database
     public class DatabaseManager
     {
         static string DBFileName = "/Logy.sqlite";
+        static SQLiteConnection connection;
 
         public static void SetDB(string db)
         {
@@ -43,16 +44,23 @@ namespace Logy.Database
         public static SQLiteConnection GetDB()
         {
             
-            CreateDB();
-            
-            try
+            if (connection == null)
             {
-                SQLiteConnection db = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName, false);
-                return db;
+                CreateDB();
+
+                try
+                {
+                    connection = new SQLiteConnection(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DBFileName, false);
+                    return connection;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
             }
-            catch (Exception e)
+            else
             {
-                return null;
+                return connection;
             }
 
         }

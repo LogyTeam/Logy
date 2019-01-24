@@ -52,9 +52,7 @@ namespace Logy.Classes
         /// </summary>
         private void LoadProject()
         {
-            SQLiteConnection sql = DatabaseManager.GetDB();
-            List<Projects> DBprojects = sql.Query<Projects>("SELECT * FROM PROJECTS where fk_idUSER ="+ this.id);
-            sql.Close();
+            List<Projects> DBprojects = DatabaseManager.GetDB().Query<Projects>("SELECT * FROM PROJECTS where fk_idUSER ="+ this.id);
 
             List<Project> projects = new List<Project>();
 
@@ -70,10 +68,9 @@ namespace Logy.Classes
         /// Method for create a new project for the user
         /// </summary>
         /// <param name="project"></param>
-        public void CreateProject(string name , DateTime StartDate)
+        public void CreateProject(string name, string description, DateTime StartDate)
         {
             //Project project = new Project(name, StartDate, this);
-
             DatabaseManager.GetDB().Execute("INSERT into PROJECTS(fk_idUSER,Name,Description,StartDate) VALUES("+ this.id + ", '" +name +"', '', '"+ StartDate +"')");
             /*SQLiteCommand command = DatabaseManager.GetDB().CreateCommand("select last_insert_rowid();");
 

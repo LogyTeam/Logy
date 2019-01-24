@@ -3,44 +3,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using System.Security.Cryptography;
 using Logy.Database.Tables;
-using Logy.Classes;
-using SQLite;
 
-namespace Logy
+namespace Logy.View
 {
-    public partial class LoginPage : ContentPage
-    {
-        public LoginPage()
-        {
-            InitializeComponent();
-            txtEmail.Text = "";
-            txtPwd.Text = "";
-        }
-
-
-        public void btnConnection_clicked(object sender, EventArgs e)
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class RegisterPage : ContentPage
+	{
+		public RegisterPage ()
+		{
+			InitializeComponent ();
+		}
+        public void BtnRegister_Clicked(object sender, EventArgs e)
         {
             Regex rx = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
             var email = txtEmail.Text;
             var passwd = txtPwd.Text;
+            var passwdconf = txtPwdConf.Text;
 
             try
             {
+
                 if (email != "")
                 {
                     if (rx.Match(email).Success)
                     {
-                        if (passwd != "")
+                        if (passwd != "" || passwdconf != "")
                         {
                             if (!passwd.Contains("   ") || !passwd.Contains(" "))
                             {
-                                Connection(email, passwd);
+                                CreateAccount(email, passwd);
                             }
                             else
                             {
@@ -49,7 +47,7 @@ namespace Logy
                         }
                         else
                         {
-                            throw new Exception("Vous n'avez pas rentrer de mot de passe");
+                            throw new Exception("Rentrez les champs des mots de passe");
                         }
                     }
                     else
@@ -61,7 +59,6 @@ namespace Logy
                 {
                     throw new Exception("Vous n'avez pas rentrer d'email");
                 }
-
             }
             catch (Exception ex)
             {
@@ -69,31 +66,11 @@ namespace Logy
             }
 
         }
-        public void BtnInscription_clicked()
+        private void CreateAccount(string email, string password)
         {
-            App.Current.MainPage = new RegisterPage();
+            DatabaseManager.GetDB().Execute("INSERT INTO Users(Username, Email, Password) VALUES(\"\", \"" + email+"\", \""+ HashMethod(password) + "\")");
+            App.Current.MainPage = new LoginPage();
         }
-        private void Connection(string email, string passwrd)
-        {
-            passwrd = HashMethod(passwrd);
-            SQLiteConnection sql = DatabaseManager.GetDB();
-            List<Users> users = sql.Query<Users>("SELECT * FROM USERS WHERE Email=\""+email+"\" AND Password=\""+passwrd+"\"");
-            sql.Close();
-
-            if (users.Count == 0)
-            {
-                DisplayAlert("Erreur : ", "Email ou mot de passe incorrect", "OK");
-            }
-            else
-            {
-                User user = users[0].CreateObject();
-                App.user = user;
-
-                App.Current.MainPage = new MainPage();
-            }
-
-        }
-
         private string HashMethod(string passwrd)
         {
             var crypt = new System.Security.Cryptography.SHA256Managed();
@@ -105,6 +82,5 @@ namespace Logy
             }
             return hash.ToString();
         }
-
     }
 }

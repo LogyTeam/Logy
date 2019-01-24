@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Logy.View.LogbookPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                <Label Text="Nagravision logbook" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32" x:Name="pageTitle" />
+            </StackLayout>
+
+            <StackLayout x:Name="dateMonth" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+            </StackLayout>
+
+
+
+            <ScrollView>
+                <Grid x:Name="gr">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

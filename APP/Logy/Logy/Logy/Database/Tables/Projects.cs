@@ -1,4 +1,5 @@
 ﻿using Logy.Classes;
+using Logy.View;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,17 @@ namespace Logy.Database.Tables
 
         public override Project CreateObject()
         {
-            SQLiteConnection sql = DatabaseManager.GetDB();
-            User u = sql.Query<Users>("SELECT * FROM USERS WHERE idUSER="+fk_idUSER)[0].CreateObject();
-            sql.Close();
+            //User u = DatabaseManager.GetDB().Query<Users>("SELECT * FROM USERS WHERE idUSER="+fk_idUSER)[0].CreateObject();
 
-            sql = DatabaseManager.GetDB();
-            Logbook log = DatabaseManager.GetDB().Query<Logbooks>("SELECT * FROM LOGBOOK WHERE fk_idPROJECT="+idPROJECT)[0].CreateObject();
-            sql.Close();
+            List<Logbooks> logs = DatabaseManager.GetDB().Query<Logbooks>("SELECT * FROM LOGBOOK WHERE fk_idPROJECT="+idPROJECT);
+            Logbook log = null;
 
-            return new Project(idPROJECT, Name, StartDate, u, EndDate, new List<Schedule>(), log);
+            if(logs.Count > 0)
+            {
+                log = logs[0].CreateObject();
+            }
+
+            return new Project(idPROJECT, Name, StartDate, App.user, EndDate, new List<Schedule>(), log);
         }
     }
 }

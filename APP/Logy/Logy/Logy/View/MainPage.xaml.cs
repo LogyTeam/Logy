@@ -9,7 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Logy.Classes;
 
-namespace Logy
+namespace Logy.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MainPage : ContentPage
@@ -49,7 +49,7 @@ namespace Logy
             Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
             titleStack.Children.Add(title);
 
-            Button newButton = new Button { Text = "New", Command = new Command(() => App.user.CreateProject("NewProject", DateTime.Now))};
+            Button newButton = new Button { Text = "New", Command = new Command(() => { App.Current.MainPage = new AddProjectPage(); })};
             titleStack.Children.Add(newButton);
 
             mainStack.Children.Add(titleStack);
@@ -63,11 +63,9 @@ namespace Logy
                         Orientation = StackOrientation.Horizontal,
                         Margin = new Thickness(0, 1, 1, 1),
                         BackgroundColor = Color.LightSteelBlue,
-                        StyleId = p.id.ToString(),
-
                         GestureRecognizers =
                     {
-                        new TapGestureRecognizer {Command = new Command (()=>Debug.WriteLine ("clicked")),},
+                        new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
                     }
                     };
 
@@ -88,9 +86,9 @@ namespace Logy
 
         }
 
-        private void btnNew_Clicked(object sender, EventArgs e)
+        public void ClickOnProject(Project project)
         {
-
+            App.Current.MainPage = new LogbookPage(project);
         }
     }
 }

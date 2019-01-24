@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Logy.View.MainPage" BackgroundColor="#666666">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                <Label Text="Projet" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout x:Name="st">
+                    <StackLayout Margin="0,0,1,0" Orientation="Horizontal" BackgroundColor="LightSteelBlue">
+                        <Image HeightRequest="100" Source="C:\Logy\APP\Logy\Logy\Logy\Assets\Images\Folder.png" />
+                        <Label FontSize="26" Text="Nagravision Stage" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

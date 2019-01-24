@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Logy
+namespace Logy.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OptionPage : ContentPage
+	public partial class Page1 : ContentPage
 	{
-		public OptionPage ()
+		public Page1 ()
 		{
 			InitializeComponent ();
 		}
