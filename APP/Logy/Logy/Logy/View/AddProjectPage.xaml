@@ -7,6 +7,7 @@
             <StackLayout>
                 
                 <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                    <Button Text="back" HorizontalOptions="Start" Clicked="BackButton_Clicked"  x:Name="backButton"></Button>
                     <Label Text="Projet" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
                 </StackLayout>
 

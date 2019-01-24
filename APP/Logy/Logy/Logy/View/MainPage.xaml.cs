@@ -39,19 +39,23 @@ namespace Logy.View
 
             StackLayout titleStack = new StackLayout
             {
-                Orientation = StackOrientation.Vertical,
+                Orientation = StackOrientation.Horizontal,
 
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 Margin = new Thickness(0, 0, 1, 1),
                 BackgroundColor = Color.FromRgb(0,175,247),
             };
 
-            Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+            Button logoutButton = new Button { Text = "Back", HorizontalOptions = LayoutOptions.Start, Command = new Command(() => {
+                App.user = null;
+                App.Current.MainPage = new LoginPage();
+            }) };
+            Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.CenterAndExpand };
+            titleStack.Children.Add(logoutButton);
             titleStack.Children.Add(title);
 
             Button newButton = new Button { Text = "New", Command = new Command(() => { App.Current.MainPage = new AddProjectPage(); })};
             titleStack.Children.Add(newButton);
-
             mainStack.Children.Add(titleStack);
 
             if (App.user != null)
@@ -61,12 +65,11 @@ namespace Logy.View
                     StackLayout projectStack = new StackLayout
                     {
                         Orientation = StackOrientation.Horizontal,
-                        Margin = new Thickness(0, 1, 1, 1),
                         BackgroundColor = Color.LightSteelBlue,
                         GestureRecognizers =
-                    {
-                        new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
-                    }
+                        {
+                            new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
+                        }
                     };
 
                     Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };

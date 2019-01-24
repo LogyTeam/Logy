@@ -28,5 +28,10 @@ namespace Logy.View
             }
 
 		}
-	}
+
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new MainPage();
+        }
+    }
 }
