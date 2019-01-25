@@ -1,6 +1,6 @@
 # Logy
 
-## Conception
+## Document de conception
 
 ### Matériel hardware
 
@@ -34,8 +34,9 @@ Pour la réalisation de cet application nous utilisons les outils/logiciels et l
 
 ### Base de données
 MCD et MLD de la base de données.
+
 #### MCD
-![MCD](./images/MCD.png)
+![MCDs](./images/MCD.png)
 
 #### MLD
 
