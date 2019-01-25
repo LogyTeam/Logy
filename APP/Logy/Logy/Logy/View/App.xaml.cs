@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logy.Classes;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +8,13 @@ namespace Logy.View
 {
     public partial class App : Application
     {
+        public static User user = null;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new AddProjectPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Logy.View"
              x:Class="Logy.View.LoginPage" BackgroundColor="#666666">
-
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android">
     <StackLayout Padding="20,20,20,20" VerticalOptions="Center" >
         <Label TextColor="White" FontSize="60" Text="Logy" HorizontalTextAlignment="Center"></Label>
         <StackLayout Padding="30,30,30,30" BackgroundColor="#00aff7" >
@@ -12,9 +11,10 @@
             <Entry Placeholder="Par exemple : Philibert" x:Name="txtEmail" AutomationId="txtEmail"/>
             <Label Text="Mot de passe :" AutomationId="lblPwd"/>
             <Entry Placeholder="Par exemple : Pa$$w0rd" IsPassword="True" x:Name="txtPwd" AutomationId="txtPwd"/>
-            <Button Text="Connexion" x:Name="btnConnection" Clicked="btnConnection_clicked" AutomationId="btnConnection_clicked"></Button>
+            <Button Text="Connexion" x:Name="btnConnection" Clicked="btnConnection_clicked"></Button>
         </StackLayout>
+        <Button Text="S'inscrire" x:Name="btnInscription" Clicked="BtnInscription_clicked" AutomationId="btnInscription_clicked"></Button>
         <Label Text="Pas encore inscrit ? Inscrit toi maintenant !" x:Name="lblInscription" AutomationId="lblInscription"></Label>
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Logy.Database;
+using Logy.Database.Tables;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /// <summary>
@@ -8,30 +11,36 @@ using System.Text;
 /// Modification Date : 04.12.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class User that contains user informations
     /// </summary>
-     public class User
+    public class User
     {
         #region Variables
+        public int id { get; private set; }
         public string Username { get; private set; } //Username of the user
+        //public string Password { get; private set;}
         public string Email { get; private set;} //Email of the user
         public List<Project> Projects {get; private set;} //Projects of the user
+
         #endregion
 
         #region Constructor
+
         /// <summary>
         /// Constructor of the class
         /// </summary>
         /// <param name="name"></param>
         /// <param name="mail"></param>
-        public User(string name,string mail)
+        public User(int i,string mail, string username)
         {
-            this.Username = name;
+            this.id = i;
             this.Email = mail;
-            this.Projects = new List<Project>();
+            this.Username = username;
+            LoadProject();
+            
         }
         #endregion
 
@@ -43,26 +52,35 @@ namespace Logy.Logbook
         /// </summary>
         private void LoadProject()
         {
+            List<Projects> DBprojects = DatabaseManager.GetDB().Query<Projects>("SELECT * FROM PROJECTS where fk_idUSER ="+ this.id);
 
+            List<Project> projects = new List<Project>();
+
+            foreach (Projects p in DBprojects)
+            {
+                projects.Add(p.CreateObject());
+            }
+
+            this.Projects = projects;
         }
 
         /// <summary>
         /// Method for create a new project for the user
         /// </summary>
         /// <param name="project"></param>
-        public Project CreateProject(string name , DateTime StartDate)
+        public void CreateProject(string name, string description, DateTime StartDate)
         {
-            Project project = new Project(name, StartDate, this);
+            //Project project = new Project(name, StartDate, this);
+            DatabaseManager.GetDB().Execute("INSERT into PROJECTS(fk_idUSER,Name,Description,StartDate) VALUES("+ this.id + ", '" +name +"', '', '"+ StartDate +"')");
+            /*SQLiteCommand command = DatabaseManager.GetDB().CreateCommand("select last_insert_rowid();");
 
-            if (this.Projects.Find(x => x.Name == name) == null)
-            {
-                this.Projects.Add(project);
-            }
-            else
-            {
-                throw new Exception("Il y a déja un projet du meme nom");
-            }
-            return project;
+            List<int> res = command.ExecuteQuery<int>();
+
+            DatabaseManager.GetDB().Execute("INSERT into LOGBOOK(fk_idPROJECT,Name,FirstName) VALUES(" + res[0] + ", '', '', ''");*/
+         
+
+
+            LoadProject();
         }
         
         /// <summary>

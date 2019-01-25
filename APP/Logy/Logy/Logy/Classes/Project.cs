@@ -8,42 +8,59 @@ using System.Text;
 /// Modification Date : 30.11.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Project that contains project informations
     /// </summary>
     public class Project
     {
+
         #region variables
+        public int id { get; private set; }
         public string Name { get; private set;}
-        public DateTime StartDate { get; private set; }
-        public DateTime EndDate { get; private set; }
+        public DateTimeOffset StartDate { get; private set; }
+        public DateTimeOffset EndDate { get; private set; }
         public string NomMembre { get; private set; }
         public User User { get; private set; }
         public Logbook Logbook { get; private set; }
         public List<Schedule> Schedules { get; private set; }
+
         #endregion
 
         #region Constructor 
+
         /// <summary>
         /// Constructor of the class
         /// </summary>
         /// <param name="name"></param>
         /// <param name="startDate"></param>
         /// <param name="user"></param>
-        public Project(string name, DateTime startDate,User user)
+        public Project(int i,string name, DateTime startDate, User user)
         {
+            this.id = i;
             this.Name = name;
             this.StartDate = startDate;
             this.User = user;
             this.Schedules = new List<Schedule>();
             CreateLogbook();
         }
+
+        public Project(int i,string name, DateTime startDate, User user, DateTime endDate, List<Schedule> schedules, Logbook logbook)
+        {
+            this.id = i;
+            this.Name = name;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this.User = user;
+            this.Schedules = schedules;
+            this.Logbook = logbook;
+        }
         #endregion
 
         #region public Methods
-        
+
+        #region Set Methods
         /// <summary>
         /// Creation of the logbook
         /// </summary>
@@ -51,7 +68,7 @@ namespace Logy.Logbook
         {
             this.Logbook = new Logbook();
         }
-
+        
         /// <summary>
         /// Add a schedule for the project
         /// </summary>
@@ -60,6 +77,9 @@ namespace Logy.Logbook
         {
             Schedules.Add(schedule);
         }
+        #endregion
+
+        #region Get Methods
 
         /// <summary>
         /// Returns if the user is in working time
@@ -71,8 +91,8 @@ namespace Logy.Logbook
             {
                 if (schedule.Day == DateTime.Now.DayOfWeek)
                 {
-                    DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-                    if (DateTime.Compare(currentTime, schedule.StartHour) >= 0 && DateTime.Compare(currentTime, schedule.EndHour) < 0)
+                    DateTimeOffset currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                    if (DateTimeOffset.Compare(currentTime,schedule.StartHour) >= 0 && DateTimeOffset.Compare(currentTime,schedule.EndHour) < 0)
                     {
                         return true;
                     }
@@ -81,13 +101,6 @@ namespace Logy.Logbook
 
             return false;
         }
-
-        #region Set Methods
-
-        #endregion
-
-        #region Get Methods
-
         #endregion
 
         #endregion

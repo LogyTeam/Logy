@@ -8,7 +8,7 @@ using System.Text;
 /// Modification Date : 30.11.2018
 /// Modified by : Jason Crisante
 /// </summary>
-namespace Logy.Logbook
+namespace Logy.Classes
 {
     /// <summary>
     /// Class Schedule that contains the schedule of the user 
@@ -16,12 +16,22 @@ namespace Logy.Logbook
     public class Schedule
     {
         #region Variables
+        public int ID { get; private set; }
         public DayOfWeek Day { get; private set;}//Day Of the week
-        public DateTime StartHour { get; private set; } //Working starting hour
-        public DateTime EndHour { get; private set; } //Working ending hour
+
+        public string DayString;
+
+        public DateTimeOffset StartHour { get; private set; } //Working starting hour
+        public DateTimeOffset EndHour { get; private set; } //Working ending hour
         #endregion
 
         #region Constructor
+
+        public Schedule()
+        {
+
+        }
+
         public Schedule(DayOfWeek day,DateTime start,DateTime end)
         {
             this.Day = day;

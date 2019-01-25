@@ -19,7 +19,14 @@ namespace Logy.View
 
 		private void Button_Clicked(object sender, EventArgs e)
 		{
-			// Inserer l'activité dans la base de donnée
+            // Inserer l'activité dans la base de donnée
+
+            if (name.Text != "")
+            {
+                App.user.CreateProject(name.Text, description.Text, DateTime.Now);
+                App.Current.MainPage = new MainPage();
+            }
+
 		}
 	}
 }
