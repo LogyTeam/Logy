@@ -9,6 +9,7 @@ namespace Logy.View
     public partial class App : Application
     {
         public static User user = null;
+
         public App()
         {
             InitializeComponent();
