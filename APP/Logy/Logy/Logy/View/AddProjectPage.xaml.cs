@@ -19,14 +19,15 @@ namespace Logy.View
 
 		private void Button_Clicked(object sender, EventArgs e)
 		{
-            // Inserer l'activité dans la base de donnée
-
-            if (name.Text != "")
+            if (name.Text != null && name.Text != "")
             {
                 App.user.CreateProject(name.Text, description.Text, DateTime.Now);
                 App.Current.MainPage = new MainPage();
             }
-
+            else
+            {
+                DisplayAlert("Erreur", "Le nom du projet est obligatoire", "Ok");
+            }
 		}
 
         private void BackButton_Clicked(object sender, EventArgs e)

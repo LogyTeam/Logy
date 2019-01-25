@@ -3,8 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Logy.View.ActivityPage">
     <ContentPage.Content>
-        <ScrollView x:Name="sc">
+        <StackLayout>
+            <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                <Button Text="back" HorizontalOptions="Start" Clicked="backButton_Clicked"  x:Name="backButton"></Button>
+                <Label Text="Activités - 22.12.2020" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32" x:Name="pageTitle" />
+                <Button Text="New" HorizontalOptions="Start" Clicked="addButton_Clicked"  x:Name="addButton"></Button>
+            </StackLayout>
             
-        </ScrollView>
+            <ScrollView x:Name="sc">
+                
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

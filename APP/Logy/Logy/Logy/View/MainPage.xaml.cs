@@ -48,6 +48,7 @@ namespace Logy.View
 
             Button logoutButton = new Button { Text = "Back", HorizontalOptions = LayoutOptions.Start, Command = new Command(() => {
                 App.user = null;
+                App.currentProject = null;
                 App.Current.MainPage = new LoginPage();
             }) };
             Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.CenterAndExpand };
@@ -62,14 +63,18 @@ namespace Logy.View
             {
                 foreach (Project p in App.user.Projects)
                 {
-                    StackLayout projectStack = new StackLayout
-                    {
-                        Orientation = StackOrientation.Horizontal,
-                        BackgroundColor = Color.LightSteelBlue,
+                    Frame frame = new Frame {
+                        BorderColor = Color.Black,
                         GestureRecognizers =
                         {
                             new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
                         }
+                    };
+                    StackLayout projectStack = new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HeightRequest = 40,
+                        BackgroundColor = Color.LightSteelBlue
                     };
 
                     Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
@@ -77,7 +82,8 @@ namespace Logy.View
                     Label lbl = new Label { FontSize = 26, Text = p.Name, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
                     projectStack.Children.Add(img);
                     projectStack.Children.Add(lbl);
-                    mainStack.Children.Add(projectStack);
+                    frame.Content = projectStack;
+                    mainStack.Children.Add(frame);
 
                 }
 
@@ -91,6 +97,7 @@ namespace Logy.View
 
         public void ClickOnProject(Project project)
         {
+            App.currentProject = project;
             App.Current.MainPage = new LogbookPage(project);
         }
     }
