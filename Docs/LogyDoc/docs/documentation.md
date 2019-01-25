@@ -205,12 +205,55 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|**Fonctionnel**|
 |----------|--------------------|---------------|
 |L'utilisateur appuie sur les boutons options| L'application affiche les options du projet|Non|
-|L'utilisateur edite le champ nom du projet|L'application active le bouton enregistrer|Non|
+|L'utilisateur édite le champ nom du projet|L'application active le bouton enregistrer|Non|
 |L'utilisateur appuie sur le bouton enregistrer| L'application va mettre à jour les données|Non|
-|L'utilisateur edit les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|Non|
+|L'utilisateur édite les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|Non|
 |L'utilisateur définit des horaires de travail |L'application active le bouton enregistrer|Non|
 |L'utilisateur appuie sur enregistrer| L'application mets à jour la base de données|Non|
 
 
 
 #### Mise en Service
+##### Installation
+
+- Prendre l'archive du projet
+- Installer Visual Studio avec les packages Xamarin
+- Télécharger les differents packages Nuget.
+- Lancer le projet
+
+##### Liste des documents fournis
+
+- Rapport du projet en html
+- Journal de bord
+
+
+#### Conclusion
+
+##### Objectifs Atteints
+- Reussir a faire une application Multiplateforme (mais pas testé sur IOS)
+- Faire qu'elle soit fonctionnelle
+- Faire qu'elle soit esthétique
+- Elle est rendue dans les temps
+- Elle est Intuitive
+
+##### Objectifs non Atteints
+- Elle n'est pas vraiment Stable
+- Elle n'est pas résistive
+
+##### Points positifs
+- On a appris a utiliser Xamarin
+- Bonne entente
+- Répartition des taches correctes
+
+##### Points négaitfs
+- Perte de temps avec le fonctionnement de Xamarin
+- Journal de bord oublié
+
+##### Difficultés
+- Xamarin
+- Realm
+- Test sur Mac (IOS)
+- Pas la bonne version de windows pour tester
+
+##### Suites possibles
+On pourrait améliorer la stabilité et la resistivité de l'application. 
