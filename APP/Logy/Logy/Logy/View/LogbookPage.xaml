@@ -18,10 +18,10 @@
             <ScrollView>
                 <Grid x:Name="gr">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                 </Grid>
