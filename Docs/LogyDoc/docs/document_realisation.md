@@ -1,7 +1,7 @@
 # Logy
 ## Document de réalisation
 
-### Dossier du projets
+### Dossier du projet
 
 ![](./images/Architecture/main.png)
 
@@ -9,7 +9,7 @@
 * BDD : Contient la documention de la base de données
 * Docs : Contient la documentation de logy sous forme de site web
 
-### Projets Visual Studio
+### Projet Visual Studio
 
 ![](./images/Projet/projets.png)
 
@@ -21,33 +21,33 @@
 
 ### Projet Logy
 
-![](./images/projet/logy.png)
+![](./images/Projet/logy.png)
 
 * Assets : Contient tous les ressources du projet
 * Classes : Contient les classes du projet
-* Database : Contient les classes et les tables liers à la base de donnée
+* Database : Contient les classes et les tables liées à la base de données
 * View : Contient les interfaces du projet
 
 #### Assets
 
-![](./images/projet/assets.png)
+![](./images/Projet/assets.png)
 
-* Images: Contient les images liers au projet
+* Images: Contient les images liées au projet
 
 #### Classes
 
-![](./images/projet/Classes.png)
+![](./images/Projet/Classes.png)
 
 #### Database
 
-![](./images/projet/database.png)
+![](./images/Projet/database.png)
 
-* Tables : Contient les fichiers de classes représentant les tables de la base de donnée
-* DatabaseManager.cs : Permet de gérer les intérations avec la base de donnée
+* Tables : Contient les fichiers de classes représentant les tables de la base de données
+* DatabaseManager.cs : Permet de gérer les interactions avec la base de données
 
 #### View
 
-![](./images/projet/view.png)
+![](./images/Projet/view.png)
 
 ### Version des outils
 
@@ -75,4 +75,4 @@
 
 ### Lancement de l'application à partir des sources
 
-Pour utiliser depuis les sources il vous faudra Visual studio 2017 installé avec Xamarin d'installer, une fois cela fais il vous faudra télécharger les sources sur repository et ouvrire le fichier Logy.sln qui se trouve dans Logy/APP/Logy
+Pour utiliser depuis les sources il vous faudra Visual studio 2017 installé avec Xamarin d'installer, une fois cela fait il vous faudra télécharger les sources sur repository et ouvrir le fichier Logy.sln qui se trouve dans Logy/APP/Logy

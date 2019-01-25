@@ -44,9 +44,17 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 #### Maquette
 ![home](./images/maquette/1.png)
 ![register](./images/maquette/2.png)
-![home](./images/maquette/3.png)
-![option](./images/maquette/4.png)
-
+![option](./images/maquette/3.png)
+![home](./images/maquette/4.png)
+![1projet](./images/maquette/5.png)
+![2projets](./images/maquette/6.png)
+![AjoutProjet](./images/maquette/7.png)
+![ActivitévideCalendrier](./images/maquette/8.png)
+![ActivitérempliCalendrier](./images/maquette/9.png)
+![Activitévide](./images/maquette/10.png)
+![Activitéremplie](./images/maquette/11.png)
+![Calendrier](./images/maquette/12.png)
+![CalendrierRempli](./images/maquette/13.png)
 #### Cas d'utilisation
 ![usecases](./images/UseCase.png)
 
@@ -56,7 +64,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 
 |**Action**|**Résultat attendu**|
 |------|----------------|
-|Le visiteur lance l’application|L’application s’ouvre et propose à l’utilisateur de s’identifier ou de crée un compte.|
+|Le visiteur lance l’application|L’application s’ouvre et propose à l’utilisateur de s’identifier ou de créer un compte.|
 |Le visiteur ferme l’application|L’application se ferme.|
 
 ###### Connexion
@@ -64,18 +72,18 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |Le visiteur appuie sur le bouton « Se connecter ».|L’application affiche un formulaire de connexion.|
-|Le visiteur entre des identifiants incorrect et appuie se le bouton « Se connecter ».|L’application essaye les identifiants et signal à l’utilisateur que ses identifiants sont faux.|
-|Le visiteur entre des identifiants correct et appuie se le bouton « Se connecter »|L’application essaye les identifiants et signal à l’utilisateur que ses identifiants sont juste. Il affiche ensuite le menu principal de l’application.|
-|Le visiteur entre des identifiants correct, coche la case « Se souvenir de moi » et appuie se le bouton « Se connecter »|L’application essaye les identifiants et signal à l’utilisateur que ses identifiants sont juste. Il affiche ensuite le menu principal de l’application et enregistre qu’elle doit se souvenir de l’utilisateur.|
+|Le visiteur entre des identifiants incorrect et appuie se le bouton « Se connecter ».|L’application essaye les identifiants et signalee à l’utilisateur que ses identifiants sont faux.|
+|Le visiteur entre des identifiants correct et appuie se le bouton « Se connecter »|L’application essaye les identifiants et signalee à l’utilisateur que ses identifiants sont juste. Il affiche ensuite le menu principal de l’application.|
+|Le visiteur entre des identifiants correct, coche la case « Se souvenir de moi » et appuie se le bouton « Se connecter »|L’application essaye les identifiants et signale à l’utilisateur que ses identifiants sont juste. Il affiche ensuite le menu principal de l’application et enregistre qu’elle doit se souvenir de l’utilisateur.|
 
 ###### Inscription
 |**Action**|**Résultat Attendu**|
 |----------|--------------------|
 |Le visiteur appuie sur le bouton « S'inscrire ».|L'application ouvre la page d'inscription|
-|Le visiteur remplit avec un mail incorrect et appuie se le bouton « S'v ».|L’application regarde si c'est bien un email et signal à l’utilisateur que son email est faux.|
-|Le visiteur entre des identifiants correct et appuie se le bouton « S'inscrire »|L’application essaye les identifiants et signal à l’utilisateur que ses identifiants sont juste. Il affiche ensuite la page de connexion.|
-|Le visiteur entre des mots de passe incorrects et appuie se le bouton « S'inscrire »|L’application essaye les mots de passe et signal à l’utilisateur que les mots de passe sont faux.|
-|Le visiteur entre des mots de passe non identiques et appuie se le bouton « S'inscrire »|L’application compare les mots de passe et signal à l’utilisateur que les mots de passe ne sont pas identiques.|
+|Le visiteur remplit avec un mail incorrect et appuie se le bouton « S'v ».|L’application regarde si c'est bien un email et signale à l’utilisateur que son email est faux.|
+|Le visiteur entre des identifiants correct et appuie se le bouton « S'inscrire »|L’application essaye les identifiants et signale à l’utilisateur que ses identifiants sont juste. Il affiche ensuite la page de connexion.|
+|Le visiteur entre des mots de passe incorrects et appuie se le bouton « S'inscrire »|L’application essaye les mots de passe et signale à l’utilisateur que les mots de passe sont faux.|
+|Le visiteur entre des mots de passe non identiques et appuie se le bouton « S'inscrire »|L’application compare les mots de passe et signale à l’utilisateur que les mots de passe ne sont pas identiques.|
 
 ##### Membre :
 
@@ -90,7 +98,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |L’utilisateur appuie sur le bouton « Nouveau projet »|L’application ouvre un formulaire demandant les informations du projet|
-|L’utilisateur ne remplit pas les champs|L’application affiche une erreur et demande que le champ nom soit remplit |
+|L’utilisateur ne remplit pas les champs|L’application affiche une erreur et demande que le champ nom soit remplit|
 |L’utilisateur remplit le champ nom|L’application crée le nouveau projet et fait revenir l’utilisateur sur la page calendrier du projet|
 |L’utilisateur remplit tous les champs|L’application crée le nouveau projet et fait revenir l’utilisateur sur la page calendrier du projet|
 
@@ -99,7 +107,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |----------|--------------------|
 |L’utilisateur clique sur l’un des projets qu’il a crée|L’application ouvre le calendrier|
 |L'utilisateur clique sur un jour du calendrier|L'application ouvre le journal de bord du jour|
-|L'utilisateur clique sur les boutons « Suivant » ou « Précendent »| Le calendrier change de mois|
+|L'utilisateur clique sur les boutons « Suivant » ou « Précédent »| Le calendrier change de mois|
 
 ###### Journal de bord
 
@@ -115,22 +123,22 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|
 |----------|--------------------|
 |L'utilisateur appuie sur les boutons options| L'application affiche les options du projet|
-|L'utilisateur edite le champ nom du projet|L'application active le bouton enregistrer|
+|L'utilisateur édite le champ nom du projet|L'application active le bouton enregistrer|
 |L'utilisateur appuie sur le bouton enregistrer| L'application va mettre à jour les données|
-|L'utilisateur edit les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|
+|L'utilisateur édite les champs nom du projet, nom du journal de bord|L'application active le bouton enregistrer|
 |L'utilisateur définit des horaires de travail |L'application active le bouton enregistrer|
 |L'utilisateur appuie sur enregistrer| L'application mets à jour la base de données|
 
+#### Analyse Concurrentielle
 
-##### Analyse Concurrentielle
-###### Avantages et désaventages
+##### Avantages et désaventages
 |**Nom**|**Avantages**|**Désaventages**|
 |-------|-------------|----------------|
 |Excel|Tableur dans lequel on peut facilement rentrer toute sorte de données et qui permet de faire un journal de bord avec| Pas fait pour ça à la base et il est payant|
 |Zoho Project| Gestionnaire de projet Web gratuit, Super design, Facile d'utlisation et pleins de fonctionnalité différentes | Application Web -> Connexion obligatoire, pages un peu trop remplies, quelques bugs de responsivité|
 |Wrike|Application mobile,responsive,pleins de fonctionnalités, Les projets peuvent etre privé ou partagé et c'est bien différencié|Beaucoup d'options, On se perd un peu|
 
-###### Exemple Graphique
+##### Exemple Graphique
 
 * Excel
 ![Zoho](./images/Concurentielle/Excel.png)
@@ -140,7 +148,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 ![Wrike](./images/Concurentielle/Wrike.png)
 
 
-##### Description des tests effectués
+#### Description des tests effectués
 
 ##### Visiteur :
 
@@ -154,7 +162,7 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat attendu**|**Fonctionnel**|
 |----------|--------------------|---------------|
 |Le visiteur appuie sur le bouton « Se connecter » sans rien entrer.|L’application affiche un message d'erreur.|Oui|
-|Le visiteur entre des identifiants incorrect et appuie se le bouton « Se connecter ».|L’application essaye les identifiants et signale à l’utilisateur que ses identifiants sont faux.|Oui|
+|Le visiteur entre des identifiants incorrect et appuie se le bouton « Se connecter ».|L’application essaye les identifiants et signalee à l’utilisateur que ses identifiants sont faux.|Oui|
 |Le visiteur entre des identifiants correct et appuie se le bouton « Se connecter »|L’application essaye les identifiants et il affiche ensuite le menu principal de l’application.|Oui|
 
 
@@ -162,10 +170,10 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |**Action**|**Résultat Attendu**|**Fonctionnel**|
 |----------|--------------------|---------------|
 |Le visiteur appuie sur le bouton « S'inscrire ».|L'application ouvre la page d'inscription|Oui|
-|Le visiteur remplit avec un mail incorrect et appuie se le bouton « S'v ».|L’application regarde si c'est bien un email et signale à l’utilisateur que son email est faux.|Oui|
-|Le visiteur entre des identifiants correct et appuie se le bouton « S'inscrire »|L’application essaye les identifiants et signale à l’utilisateur que ses identifiants sont juste. Il affiche ensuite la page de connexion.|Oui|
-|Le visiteur entre des mots de passe incorrects et appuie se le bouton « S'inscrire »|L’application essaye les mots de passe et signale à l’utilisateur que les mots de passe sont faux.|Oui|
-|Le visiteur entre des mots de passe non identiques et appuie se le bouton « S'inscrire »|L’application compare les mots de passe et signale à l’utilisateur que les mots de passe ne sont pas identiques.|Oui|
+|Le visiteur remplit avec un mail incorrect et appuie se le bouton « S'v ».|L’application regarde si c'est bien un email et signalee à l’utilisateur que son email est faux.|Oui|
+|Le visiteur entre des identifiants correct et appuie se le bouton « S'inscrire »|L’application essaye les identifiants et signalee à l’utilisateur que ses identifiants sont juste. Il affiche ensuite la page de connexion.|Oui|
+|Le visiteur entre des mots de passe incorrects et appuie se le bouton « S'inscrire »|L’application essaye les mots de passe et signalee à l’utilisateur que les mots de passe sont faux.|Oui|
+|Le visiteur entre des mots de passe non identiques et appuie se le bouton « S'inscrire »|L’application compare les mots de passe et signalee à l’utilisateur que les mots de passe ne sont pas identiques.|Oui|
 
 ##### Membre :
 
@@ -212,48 +220,48 @@ L’organisation du projet sera principalement basée sur une méthode agile à 
 |L'utilisateur appuie sur enregistrer| L'application mets à jour la base de données|Non|
 
 
+### Mise en Service
 
-#### Mise en Service
-##### Installation
+#### Installation
 
 - Prendre l'archive du projet
 - Installer Visual Studio avec les packages Xamarin
 - Télécharger les differents packages Nuget.
 - Lancer le projet
 
-##### Liste des documents fournis
+#### Liste des documents fournis
 
 - Rapport du projet en html
 - Journal de bord
 
 
-#### Conclusion
+### Conclusion
 
-##### Objectifs Atteints
+#### Objectifs Atteints
 - Reussir a faire une application Multiplateforme (mais pas testé sur IOS)
 - Faire qu'elle soit fonctionnelle
 - Faire qu'elle soit esthétique
 - Elle est rendue dans les temps
 - Elle est Intuitive
 
-##### Objectifs non Atteints
+#### Objectifs non Atteints
 - Elle n'est pas vraiment Stable
 - Elle n'est pas résistive
 
-##### Points positifs
+#### Points positifs
 - On a appris a utiliser Xamarin
 - Bonne entente
 - Répartition des taches correctes
 
-##### Points négaitfs
+#### Points négaitfs
 - Perte de temps avec le fonctionnement de Xamarin
 - Journal de bord oublié
 
-##### Difficultés
+#### Difficultés
 - Xamarin
 - Realm
 - Test sur Mac (IOS)
 - Pas la bonne version de windows pour tester
 
-##### Suites possibles
-On pourrait améliorer la stabilité et la resistivité de l'application. 
+#### Suites possibles
+On pourrait améliorer la stabilité et la resistivité de l'application.
