@@ -39,34 +39,42 @@ namespace Logy.View
 
             StackLayout titleStack = new StackLayout
             {
-                Orientation = StackOrientation.Vertical,
+                Orientation = StackOrientation.Horizontal,
 
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 Margin = new Thickness(0, 0, 1, 1),
                 BackgroundColor = Color.FromRgb(0,175,247),
             };
 
-            Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+            Button logoutButton = new Button { Text = "Back", HorizontalOptions = LayoutOptions.Start, Command = new Command(() => {
+                App.user = null;
+                App.currentProject = null;
+                App.Current.MainPage = new LoginPage();
+            }) };
+            Label title = new Label { FontSize = 32, Text = "Projets", HorizontalOptions = LayoutOptions.CenterAndExpand };
+            titleStack.Children.Add(logoutButton);
             titleStack.Children.Add(title);
 
             Button newButton = new Button { Text = "New", Command = new Command(() => { App.Current.MainPage = new AddProjectPage(); })};
             titleStack.Children.Add(newButton);
-
             mainStack.Children.Add(titleStack);
 
             if (App.user != null)
             {
                 foreach (Project p in App.user.Projects)
                 {
+                    Frame frame = new Frame {
+                        BorderColor = Color.Black,
+                        GestureRecognizers =
+                        {
+                            new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
+                        }
+                    };
                     StackLayout projectStack = new StackLayout
                     {
                         Orientation = StackOrientation.Horizontal,
-                        Margin = new Thickness(0, 1, 1, 1),
-                        BackgroundColor = Color.LightSteelBlue,
-                        GestureRecognizers =
-                    {
-                        new TapGestureRecognizer {Command = new Command (()=>ClickOnProject(p) )},
-                    }
+                        HeightRequest = 40,
+                        BackgroundColor = Color.LightSteelBlue
                     };
 
                     Image img = new Image { HeightRequest = 100, Source = "C:\\Users\\jason.crisante\\Documents\\Logy\\APP\\Logy\\Logy\\Logy\\Assets\\Images\\Folder.png" };
@@ -74,7 +82,8 @@ namespace Logy.View
                     Label lbl = new Label { FontSize = 26, Text = p.Name, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
                     projectStack.Children.Add(img);
                     projectStack.Children.Add(lbl);
-                    mainStack.Children.Add(projectStack);
+                    frame.Content = projectStack;
+                    mainStack.Children.Add(frame);
 
                 }
 
@@ -88,6 +97,7 @@ namespace Logy.View
 
         public void ClickOnProject(Project project)
         {
+            App.currentProject = project;
             App.Current.MainPage = new LogbookPage(project);
         }
     }

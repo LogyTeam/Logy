@@ -7,7 +7,8 @@
             <StackLayout>
 
                 <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
-                    <Label Text="Projet" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
+                    <Button Text="back" HorizontalOptions="Start" Clicked="backButton_Clicked"  x:Name="backButton"></Button>
+                    <Label Text="Activité" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32"  />
                 </StackLayout>
 
                 <Label Text="Nom de l'activité :"></Label>

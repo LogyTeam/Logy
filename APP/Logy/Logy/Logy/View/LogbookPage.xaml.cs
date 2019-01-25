@@ -1,4 +1,6 @@
 ﻿using Logy.Classes;
+using Logy.Database;
+using Logy.Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +19,13 @@ namespace Logy.View
 
         Grid grid;
         StackLayout stackLayout;
+        Project project = null;
 
         public LogbookPage(Project project)
         {
             InitializeComponent();
+
+            this.project = project;
 
             pageTitle.Text = project.Name;
 
@@ -57,37 +62,52 @@ namespace Logy.View
 
             stackLayout.Children.Add(btn);
 
-
-            DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
-
-            var dateMax = 2;
-
-			for (int row = 0; row < 5; row++)
-			{
-				for (int colum = 0; colum < 6; colum++)
-				{
-					for (int x = 1; x <= dateMax + 1; x++)
-					{
-						btn = new Button { Text = x.ToString(), BackgroundColor = Color.LightSteelBlue };
-
-						Grid.SetRow(btn, row);
-						Grid.SetColumn(btn, colum);
-
-						btn.Clicked += new EventHandler(ChangePage);
-
-						grid.Children.Add(btn);
-					}
-				}
-			}
-
+            LoadDate();
 
 		}
 
-		private void ChangePage(object sender, EventArgs e)
+        public void LoadDate()
+        {
+
+            List<Button> newChildren = new List<Button>();
+
+            List<Activities> activities = DatabaseManager.GetDB().Query<Activities>("SELECT * FROM ACTIVITIES WHERE fk_idPROJECT="+project.id);
+
+            var dateMax = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+
+            int row = 0;
+            int column = 0;
+            for (int i = 1; i <= dateMax; i++)
+            {
+                int nbAct = activities.Where(x => x.StartDate.Date == new DateTime(dateTime.Year, dateTime.Month, i).Date).Count();
+                Button btn = new Button { Text = i.ToString(), BackgroundColor = (nbAct > 0) ? Color.SteelBlue : Color.LightSteelBlue, };
+
+                Grid.SetRow(btn, row);
+                Grid.SetColumn(btn, column);
+
+                btn.Clicked += new EventHandler(btnDateClicked);
+
+                newChildren.Add(btn);
+
+                column++;
+
+                if (column > 5)
+                {
+                    row++;
+                    column = 0;
+                }
+            }
+            grid.Children.Clear();
+            newChildren.ForEach(x => grid.Children.Add(x));
+
+        }
+
+        private void btnDateClicked(object sender, EventArgs e)
 		{
 			var btn = (Button)sender;
 
-			
+            App.lastDate = new DateTime(this.dateTime.Year, this.dateTime.Month, int.Parse(btn.Text));
+            App.Current.MainPage = new ActivityPage(new DateTime(this.dateTime.Year, this.dateTime.Month, int.Parse(btn.Text)));
 		}
 
         private void UpdateLabelDate()
@@ -108,6 +128,7 @@ namespace Logy.View
                 this.dateTime = this.dateTime.AddMonths(1);
             }
             UpdateLabelDate();
+            LoadDate();
         }
 
         private void PreviousMonth(object sender, EventArgs e)
@@ -121,6 +142,13 @@ namespace Logy.View
                 this.dateTime = this.dateTime.AddMonths(-1);
             }
             UpdateLabelDate();
+            LoadDate();
+
+        }
+
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new MainPage();
         }
     }
 }

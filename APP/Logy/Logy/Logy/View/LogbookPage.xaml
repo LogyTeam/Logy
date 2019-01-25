@@ -6,6 +6,7 @@
         <StackLayout>
 
             <StackLayout BackgroundColor="#00aff7" Orientation="Horizontal">
+                <Button Text="back" HorizontalOptions="Start" Clicked="BackButton_Clicked"  x:Name="backButton"></Button>
                 <Label Text="Nagravision logbook" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="32" x:Name="pageTitle" />
             </StackLayout>
 
@@ -17,12 +18,7 @@
 
             <ScrollView>
                 <Grid x:Name="gr">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+
 
                 </Grid>
             </ScrollView>

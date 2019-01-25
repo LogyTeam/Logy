@@ -43,7 +43,7 @@ namespace Logy.Database
         /// <returns></returns>
         public static SQLiteConnection GetDB()
         {
-            
+
             if (connection == null)
             {
                 CreateDB();

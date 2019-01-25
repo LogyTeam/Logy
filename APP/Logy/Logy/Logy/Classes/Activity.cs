@@ -21,7 +21,6 @@ namespace Logy.Classes
         public string Description {get;set;}//Description of the activity
         public DateTime StartHour {get; private set;}//Start hour of the activity
         public DateTime EndHour { get; private set;}//End hour of the activity
-        public string Location {get;set;}//Location of the activity
         #endregion
 
         #region Constructor
@@ -46,13 +45,12 @@ namespace Logy.Classes
             this.StartHour = startHour;
         }
 
-        public Activity(string title, string description, DateTime startHour, DateTime endHour, string location)
+        public Activity(string title, string description, DateTime startHour, DateTime endHour)
         {
             this.Title = title;
             this.Description = description;
             this.StartHour = startHour;
             this.EndHour = endHour;
-            this.Location = location;
         }
         #endregion
 
